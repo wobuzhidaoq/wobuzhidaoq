@@ -1,12 +1,12 @@
 # 🎨 Сохранённые стили профиля
 
-Каждый готовый стиль сохранён **git-тегом** — это «закладка» на точное состояние репозитория.
-Тег никогда не меняется, поэтому к стилю можно вернуться в любой момент, даже после экспериментов.
+Каждый готовый стиль сохранён «закладкой» на точное состояние репозитория — **git-тегом** или **коммитом**.
+Закладка никогда не меняется, поэтому к стилю можно вернуться в любой момент, даже после экспериментов.
 
-| Тег | Стиль | Посмотреть |
+| Закладка | Стиль | Посмотреть |
 |---|---|---|
-| `style-sakura-day` | ☀️ Дневная сакура: небо, облака, зелёный холм, котики, пруд с карпами кои | [открыть](https://github.com/wobuzhidaoq/wobuzhidaoq/tree/style-sakura-day) |
-| `style-night-sakura` | 🌙 Ночная сакура: тёмно-фиолетовое небо, луна, тории, котик на воротах | [открыть](https://github.com/wobuzhidaoq/wobuzhidaoq/tree/style-night-sakura) |
+| тег `style-sakura-day` | ☀️ Дневная сакура: небо, облака, зелёный холм, котики, пруд с карпами кои | [открыть](https://github.com/wobuzhidaoq/wobuzhidaoq/tree/style-sakura-day) |
+| коммит `ccabea7` | 🌙 Ночная сакура: тёмно-фиолетовое небо, луна, тории, котик на воротах | [открыть](https://github.com/wobuzhidaoq/wobuzhidaoq/tree/ccabea71081832e3e07080e92b44c026a94d51d6) |
 
 По ссылке «открыть» GitHub показывает README ровно таким, каким он был в этом стиле.
 Архив со всеми файлами стиля можно скачать на странице **Tags**:
@@ -20,6 +20,9 @@ https://github.com/wobuzhidaoq/wobuzhidaoq/tags
 3. Нажми зелёную **Run workflow**. Через ~20 секунд появится тег `style-cyberpunk` — он сразу виден на странице
    **Tags**. Добавь его в таблицу выше, чтобы не забыть.
 
+> Робот сохраняет только то, у чего файлы в `.github/workflows` такие же, как сейчас в `main`
+> (так GitHub защищает репозиторий). Поэтому сохраняй стиль, пока он в `main`, — то есть сразу, как он понравился.
+
 ## Как безопасно попробовать новый стиль
 
 1. Новый стиль делается **в отдельной ветке**, а не в `main`, поэтому профиль не меняется.
@@ -28,7 +31,7 @@ https://github.com/wobuzhidaoq/wobuzhidaoq/tags
 
 ## Как вернуть сохранённый стиль
 
-**Проще всего:** попроси Claude: «верни стиль `style-sakura-day`».
+**Проще всего:** попроси Claude: «верни стиль `style-sakura-day`» (или «верни ночной стиль, коммит `ccabea7`»).
 
 **Если эксперимент слили через pull request:** открой этот pull request на GitHub →
 внизу кнопка **Revert** → **Create pull request** → **Merge pull request**. Профиль вернётся к прошлому стилю.
@@ -38,7 +41,7 @@ https://github.com/wobuzhidaoq/wobuzhidaoq/tags
 ```bash
 git fetch --tags
 git checkout main && git pull
-git restore --source=style-sakura-day --staged --worktree :/   # файлы станут ровно как в теге
+git restore --source=style-sakura-day --staged --worktree :/   # или --source=ccabea7 для ночного стиля
 git commit -m "Вернуть стиль sakura-day"
 git push
 ```

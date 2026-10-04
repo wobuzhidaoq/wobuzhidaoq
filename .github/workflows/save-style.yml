@@ -47,7 +47,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -a "$tag" "$sha" -m "${DESC:-Сохранённый стиль $tag}"
-          git push origin "refs/tags/$tag"
+          git push origin "refs/tags/$tag" || {
+            echo "::error::GitHub не дал сохранить $REF: роботу нельзя сохранять коммиты, где файлы в .github/workflows отличаются от текущих. Сохраняй стиль, пока он в main."
+            exit 1
+          }
           {
             echo "### 💾 Стиль сохранён как \`$tag\`"
             echo "Посмотреть: https://github.com/${GITHUB_REPOSITORY}/tree/$tag"
