@@ -466,23 +466,3 @@ def anime(data: dict, username: str, ctx, max_items: int = 5) -> str:
     p.append(f'<rect x="8" y="8" width="884" height="{h - 16}" fill="none" stroke="{INK}" stroke-width="5" '
              f'filter="url(#ink)"/>')
     return document(w, h, f"Сейчас смотрю ({data['service']})", DEFS, CSS, "".join(p), T.fonts(ctx))
-
-
-# ---------------------------------------------------------------------------
-# Заглушка
-# ---------------------------------------------------------------------------
-
-
-def placeholder(w: int, h: int, label: str, ctx) -> str:
-    rng = random.Random(w + h)
-    T = Text()
-    size = max(12, min(w / max(len(label), 1) * 1.5, w / 22))
-    body = (
-        f'<rect x="2" y="2" width="{w - 4}" height="{h - 4}" fill="#fff" stroke="{INK}" stroke-width="3" '
-        f'stroke-dasharray="12 7"/>'
-        f'<clipPath id="phc"><rect x="2" y="2" width="{w - 4}" height="{h - 4}"/></clipPath>'
-        f'<g clip-path="url(#phc)" opacity=".35">{focus_lines(rng, w / 2, h / 2, w * .32, h * .3, 70, w)}</g>'
-        + T.b(w / 2, h / 2 + size * .35, label, f"{size:.0f}", INK, "middle",
-              extra='stroke="#fff" stroke-width="6" paint-order="stroke"')
-    )
-    return document(w, h, label, DEFS, CSS, body, T.fonts(ctx))

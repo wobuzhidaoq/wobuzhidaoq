@@ -6,7 +6,6 @@
 
     GITHUB_TOKEN=... python3 scripts/build.py
     python3 scripts/build.py --snapshot stats.json   # без обращения к GitHub API
-    python3 scripts/build.py --actions-env           # настройки стиля для шагов workflow
 """
 
 import argparse
@@ -27,15 +26,6 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "assets" / "generated"
 README = ROOT / "README.md"
 
-PLACEHOLDERS = {
-    # файл: (ширина, высота, подпись) — рисуются, только если GitHub Actions ещё не создал настоящую картинку
-    "stats.svg": (467, 195, "Статистика появится после первого запуска Actions"),
-    "top-langs.svg": (300, 195, "Языки появятся после запуска Actions"),
-    "snake.svg": (880, 192, "Змейка выползет после первого запуска Actions"),
-    "3d-sakura.svg": (1280, 520, "3D-календарь появится после первого запуска Actions"),
-}
-
-
 def write(name: str, content: str) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / name).write_text(content, encoding="utf-8")
@@ -55,67 +45,12 @@ def load_config() -> tuple[dict, str, dict]:
     return cfg, name, style_cfg
 
 
-def add_snake_background(path: Path, bg: dict) -> None:
-    """У змейки прозрачный фон — подкладываем карточку в цветах стиля."""
-    if not path.exists():
-        return
-    svg = re.sub(r'<rect id="sakura-bg"[^>]*/>', "", path.read_text(encoding="utf-8"))
-    m = re.search(r'viewBox="([-\d.]+)[ ,]+([-\d.]+)[ ,]+([-\d.]+)[ ,]+([-\d.]+)"', svg)
-    if not m:
-        return
-    x, y, w, h = (float(v) for v in m.groups())
-    rect = (f'<rect id="sakura-bg" x="{x + 1}" y="{y + 1}" width="{w - 2}" height="{h - 2}" rx="{bg["rx"]}" '
-            f'fill="{bg["fill"]}" stroke="{bg["stroke"]}" stroke-width="2"/>')
-    svg = re.sub(r"(<svg\b[^>]*>)", lambda mm: mm.group(1) + rect, svg, count=1)
-    path.write_text(svg, encoding="utf-8")
-    print("  ✿ snake.svg — фон в цветах стиля")
-
-
-def make_grayscale(path: Path) -> None:
-    """Обесцвечивает чужую картинку (например, 3D-календарь), если стиль чёрно-белый."""
-    if not path.exists():
-        return
-    svg = path.read_text(encoding="utf-8")
-    if 'id="bw-wrap"' in svg:
-        return
-    opening = re.search(r"<svg\b[^>]*>", svg)
-    end = svg.rfind("</svg>")
-    if not opening or end < 0:
-        return
-    head = ('<defs><filter id="bw-gray"><feColorMatrix type="saturate" values="0"/></filter></defs>'
-            '<g id="bw-wrap" filter="url(#bw-gray)">')
-    svg = svg[:opening.end()] + head + svg[opening.end():end] + "</g>" + svg[end:]
-    path.write_text(svg, encoding="utf-8")
-    print(f"  ✿ {path.name} — обесцвечено")
-
-
-def actions_env() -> int:
-    """Печатает настройки стиля в формате $GITHUB_OUTPUT для шагов workflow."""
-    cfg, name, style_cfg = load_config()
-    contrib = {**style_cfg["contrib3d"], "fileName": "profile-sakura.svg"}
-    contrib_path = Path(os.environ.get("RUNNER_TEMP", "/tmp")) / "3d-style.json"
-    contrib_path.write_text(json.dumps(contrib), encoding="utf-8")
-    langs = style_cfg.get("langs_options")
-    hidden = [lang.lower() for lang in cfg.get("exclude_languages", [])]
-    if langs and hidden:
-        langs = {**langs, "hide": ",".join(hidden)}
-    print(f"style={name}")
-    print(f"stats_options={json.dumps(style_cfg['stats_options'], ensure_ascii=False)}")
-    print(f"langs_options={json.dumps(langs, ensure_ascii=False) if langs else ''}")
-    print(f"snake={style_cfg['snake']}")
-    print(f"contrib3d={contrib_path}")
-    return 0
-
-
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--snapshot", help="JSON со статистикой GitHub вместо запроса к API")
     parser.add_argument("--no-fonts", action="store_true", help="не встраивать шрифты (офлайн)")
     parser.add_argument("--no-anime", action="store_true", help="не ходить в AniList/Shikimori")
-    parser.add_argument("--actions-env", action="store_true", help="вывести настройки стиля для workflow")
     args = parser.parse_args()
-    if args.actions_env:
-        return actions_env()
 
     cfg, style_name, style_cfg = load_config()
     style = styles.load(style_name)
@@ -177,13 +112,6 @@ def main() -> int:
             readme = replace_block(readme, marker, render(cfg, style_cfg))
         README.write_text(readme, encoding="utf-8")
 
-    print("🧩 Заглушки и змейка")
-    for name, (w, h, label) in PLACEHOLDERS.items():
-        if not (OUT / name).exists():
-            write(name, style.placeholder(w, h, label, ctx))
-    add_snake_background(OUT / "snake.svg", style_cfg["snake_background"])
-    for name in style_cfg.get("grayscale", []):
-        make_grayscale(OUT / name)
     print("готово ✨" if ok else "готово, но с ошибками (см. выше)")
     return 0 if ok else 1
 

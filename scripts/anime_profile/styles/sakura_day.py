@@ -25,7 +25,3 @@ def quote(quotes, ctx):
 
 def anime(data, username, ctx, max_items):
     return anime_list.build(data, username, ctx.fonts, max_items)
-
-
-def placeholder(w, h, label, ctx):
-    return scenery.build_placeholder(w, h, label, ctx.fonts)

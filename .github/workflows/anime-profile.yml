@@ -27,54 +27,6 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: 🎨 Настройки стиля (config/profile.json → style)
-        id: style
-        run: python3 scripts/build.py --actions-env >> "$GITHUB_OUTPUT"
-
-      - name: 📊 Карточка статистики
-        uses: stats-organization/github-readme-stats-action@v2
-        continue-on-error: true
-        with:
-          card: stats
-          path: assets/generated/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-          options: ${{ steps.style.outputs.stats_options }}
-
-      - name: 🈳 Карточка языков
-        if: ${{ steps.style.outputs.langs_options != '' }}
-        uses: stats-organization/github-readme-stats-action@v2
-        continue-on-error: true
-        with:
-          card: top-langs
-          path: assets/generated/top-langs.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-          options: ${{ steps.style.outputs.langs_options }}
-
-      - name: 🐍 Змейка из графика вкладов
-        uses: Platane/snk/svg-only@v3
-        continue-on-error: true
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            assets/generated/snake.svg?${{ steps.style.outputs.snake }}
-
-      - name: 🗻 3D-календарь
-        uses: yoshi389111/github-profile-3d-contrib@latest
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-          SETTING_JSON: ${{ steps.style.outputs.contrib3d }}
-
-      - name: 📦 Перенести 3D-картинку
-        if: ${{ !cancelled() }}
-        run: |
-          if [ -f profile-3d-contrib/profile-sakura.svg ]; then
-            mkdir -p assets/generated
-            mv profile-3d-contrib/profile-sakura.svg assets/generated/3d-sakura.svg
-          fi
-          rm -rf profile-3d-contrib
-
       - name: ✨ Шапка, окно статуса, цитата дня, список аниме, виджеты README
         if: ${{ !cancelled() }}
         env:

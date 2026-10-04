@@ -48,9 +48,7 @@
     "footer": "assets/images/manga-smile.jpg"
   },
 
-  "credits": [
-    "Котик «え?» — Reboot_kitten (小红书)"
-  ],
+  "credits": [],
 
   "exclude_languages": ["Python"],
 

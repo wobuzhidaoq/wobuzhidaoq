@@ -1,4 +1,4 @@
-"""Блоки README с внешними виджетами (печатающийся текст, бейджи, навыки, статистика, счётчик).
+"""Блоки README с внешними виджетами (печатающийся текст, бейджи, навыки, счётчик).
 
 Цвета берутся из config/styles/<стиль>.json, тексты и списки — из config/profile.json,
 поэтому при смене стиля README перекрашивается сам, а твои тексты остаются.
@@ -116,31 +116,13 @@ def skills(cfg: dict, style: dict) -> str:
     return "\n\n".join(blocks)
 
 
-def stats(cfg: dict, style: dict) -> str:
-    login = cfg.get("github_username", "")
-    cards = ['  <img src="./assets/generated/stats.svg" height="180" alt="Статистика GitHub"/>']
-    if style.get("langs_options"):
-        cards.append('  <img src="./assets/generated/top-langs.svg" height="180" alt="Самые используемые языки"/>')
-    streak = urlencode({"user": login, "locale": "ru", **style["streak"]})
-    activity = urlencode({"username": login, **style["activity"], "custom_title": "Статистика активности · 活動"})
-    return "\n\n".join([
-        '<p align="center">\n' + "\n".join(cards) + "\n</p>",
-        f'<p align="center">\n  <img src="https://streak-stats.demolab.com?{streak}" alt="Серия дней с коммитами"/>\n</p>',
-        f'<p align="center">\n  <img src="https://github-readme-activity-graph.vercel.app/graph?{activity}" '
-        f'width="100%" alt="График активности"/>\n</p>',
-        '<p align="center">\n  <img src="./assets/generated/3d-sakura.svg" width="100%" '
-        'alt="3D-календарь вкладов"/>\n</p>',
-    ])
-
-
 def views(cfg: dict, style: dict) -> str:
     login = cfg.get("github_username", "")
     params = urlencode({"name": login, "theme": style["views_theme"], "padding": 7, "offset": 0, "align": "top",
                         "scale": 1, "pixelated": 1, "darkmode": "auto"})
     credits = "".join(f"\n  <br/><sub>🎨 {c}</sub>" for c in cfg.get("credits", []))
     return (f'<p align="center">\n  <img src="https://count.getloli.com/@{login}?{params}" '
-            f'alt="Счётчик просмотров профиля"/>\n  <br/>\n  <sub>☝️ столько путников уже заглянуло в профиль</sub>'
-            f"{credits}\n</p>")
+            f'alt="Счётчик просмотров профиля"/>{credits}\n</p>')
 
 
-BLOCKS = {"TYPING": typing, "BADGES": badges, "SKILLS": skills, "STATS": stats, "VIEWS": views}
+BLOCKS = {"TYPING": typing, "BADGES": badges, "SKILLS": skills, "VIEWS": views}
