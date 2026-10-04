@@ -22,7 +22,6 @@
 <p align="center">
   <a href="https://github.com/wobuzhidaoq?tab=followers"><img src="https://img.shields.io/github/followers/wobuzhidaoq?label=%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B8&style=for-the-badge&logo=github&logoColor=white&color=ffffff&labelColor=111111" alt="Подписчики"/></a>
   <img src="https://img.shields.io/badge/%D0%A3%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C%20%D1%81%D0%B8%D0%BB%D1%8B-%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B5%209000%21-ffffff?style=for-the-badge&labelColor=111111" alt="Уровень силы"/>
-  <img src="https://img.shields.io/badge/%D0%90%D0%BD%D0%B8%D0%BC%D0%B5--%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81-%D1%81%D0%BC%D0%BE%D1%82%D1%80%D1%8E%20%D0%B5%D1%89%D1%91%20%D0%BE%D0%B4%D0%BD%D1%83%20%D1%81%D0%B5%D1%80%D0%B8%D1%8E-ffffff?style=for-the-badge&labelColor=111111&logo=crunchyroll&logoColor=white" alt="Аниме-статус"/>
 </p>
 <!-- BADGES:END -->
 
@@ -40,7 +39,7 @@
 
 <p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
 
-<h2 align="center">⚔️ Арсенал · 技術スタック</h2>
+<h2 align="center">Арсенал · 技術スタック</h2>
 
 <!-- Список навыков — в config/profile.json → skills (названия как на https://skillicons.dev) -->
 <!-- SKILLS:START -->
@@ -61,10 +60,8 @@
 
 <p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
 
-<h2 align="center">💬 Цитата дня · 今日の名言</h2>
-
 <p align="center">
-  <img src="./assets/generated/quote.svg" width="100%" alt="Аниме-цитата дня"/>
+  <img src="./assets/generated/quote.svg" width="100%" alt="Мой девиз: fear of popularity will not lead you to global goals"/>
 </p>
 
 <!-- ANIME-LIST:START -->

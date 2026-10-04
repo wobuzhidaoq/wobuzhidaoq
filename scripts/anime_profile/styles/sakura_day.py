@@ -19,8 +19,8 @@ def status(stats, derived, cfg, ctx, exclude):
     return status_window.build(stats, derived, cfg, ctx.fonts, exclude)
 
 
-def quote(quotes, ctx):
-    return quote_card.build(quotes, ctx.fonts)
+def quote(quotes, ctx, pinned=False):
+    return quote_card.build(quotes, ctx.fonts, pinned=pinned)
 
 
 def anime(data, username, ctx, max_items):

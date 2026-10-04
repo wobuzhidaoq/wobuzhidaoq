@@ -9,8 +9,8 @@ import math
 import random
 
 from .. import status_window
-from ..quote import pick
-from ..svg import SPARKLE_PATH, document, esc, truncate, wrap
+from ..quote import PINNED_CAPTION, attribution, pick
+from ..svg import SPARKLE_PATH, balanced_wrap, document, esc, truncate, wrap
 
 INK = "#111111"
 GRAY = "#555555"
@@ -399,11 +399,11 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
 # ---------------------------------------------------------------------------
 
 
-def quote(quotes: list[dict], ctx, day: dt.date | None = None) -> str:
+def quote(quotes: list[dict], ctx, day: dt.date | None = None, pinned: bool = False) -> str:
     T = Text()
     day = day or dt.datetime.now(dt.timezone.utc).date()
     _, q = pick(quotes, day)
-    lines = wrap(q["text"], 32, 4)
+    lines = balanced_wrap(q["text"], 32, 4)
     w = 900
     h = 300 if len(lines) <= 3 else 330
     cx, cy = 590, (h + 46) / 2
@@ -416,13 +416,13 @@ def quote(quotes: list[dict], ctx, day: dt.date | None = None) -> str:
         + panel("qp", [(24, 24), (274, 24), (274, h - 24), (24, h - 24)], picture(ctx, "quote", 24, 24, 250, h - 48, 560), 3)
         + f'<g transform="rotate(8 228 64)">{T.t(228, 72, "じーっ", 22, "#fff", "middle", INK_OUTLINE)}</g>'
         + f'<rect x="300" y="26" width="300" height="30" fill="{INK}"/>'
-        + T.b(314, 47, f"今日の名言 · {day:%d.%m.%Y}", 15, "#fff")
+        + T.b(314, 47, PINNED_CAPTION if pinned else f"今日の名言 · {day:%d.%m.%Y}", 15, "#fff")
         + f'<g class="pop" style="animation-delay:.2s">{bubble(cx, cy, 274, ry, 280, cy + 30)}{text}</g>'
-        + T.b(874, h - 22, f"— {q['who']} · «{q['anime']}»", 16, INK, "end", extra=WHITE_HALO)
+        + (T.b(874, h - 22, attribution(q), 16, INK, "end", extra=WHITE_HALO) if attribution(q) else "")
         + f'<rect x="8" y="8" width="{w - 16}" height="{h - 16}" fill="none" stroke="{INK}" stroke-width="5" '
           f'filter="url(#ink)"/>'
     )
-    return document(w, h, f"Цитата дня: {q['text']} — {q['who']}", DEFS, CSS, body, T.fonts(ctx))
+    return document(w, h, f"{q['text']} {attribution(q)}".strip(), DEFS, CSS, body, T.fonts(ctx))
 
 
 # ---------------------------------------------------------------------------
