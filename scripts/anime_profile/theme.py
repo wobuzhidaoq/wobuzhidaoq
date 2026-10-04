@@ -1,19 +1,26 @@
-"""Общая палитра «ночная сакура» для всех карточек."""
+"""Общая палитра «дневная сакура»: голубое небо, розовые лепестки, светлые карточки."""
 
-BG_DEEP = "#0a0820"
-BG = "#120d2b"
-BG_2 = "#1d1145"
-BG_3 = "#2a1747"
+# Тексты
+INK = "#4a2040"       # основной текст (тёмная слива — читается на светлом)
+INK_SOFT = "#8e5a7c"  # подписи
+ACCENT = "#ff4f9a"    # главный розовый акцент
+ACCENT_2 = "#2a86cf"  # второй акцент: небесно-голубой для служебных надписей
+GOLD = "#e8930c"
 
+# Заливки
 PINK = "#ff8fc7"
-PINK_LIGHT = "#ffd1e8"
-PINK_DEEP = "#ff5fa2"
-LAVENDER = "#b9a6ff"
-PURPLE = "#7c5cff"
-CYAN = "#7de3ff"
-GOLD = "#ffe9a8"
-TEXT = "#f4ecff"
-MUTED = "#a99bc9"
+PINK_LIGHT = "#ffd1e6"
+LILAC = "#b18cff"
+SKY = "#5bb8f5"
+LEAF = "#6cc070"
+WHITE = "#ffffff"
+
+# Карточки
+CARD_TOP = "#fffbfd"
+CARD_BOTTOM = "#ffeaf3"
+TRACK = "#ffe0ee"       # фон полосок прогресса
+CELL = "#fff3f8"
+CELL_STROKE = "#ffc6de"
 
 FONT_FAMILY = "M PLUS Rounded 1c"
 FONT_STACK = (
