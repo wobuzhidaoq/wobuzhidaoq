@@ -201,26 +201,3 @@ CARD_DEFS = f"""
 def glass(x: float, y: float, w: float, h: float, opacity: float = .84) -> str:
     return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="16" fill="#ffffff" fill-opacity="{opacity}" '
             f'stroke="#ffffff" stroke-width="1.5"/>')
-
-
-# ---------------------------------------------------------------------------
-# Заглушка для карточек, которые ещё не сгенерированы
-# ---------------------------------------------------------------------------
-
-
-def build_placeholder(w: int, h: int, label: str, fonts: FontEmbedder) -> str:
-    rng = random.Random(w * h)
-    size = max(12, int(min(w / max(len(label), 1) * 1.6, w / 20)))
-    defs = art.ART_DEFS + PETAL_GRADIENT + CARD_DEFS
-    css = art.ART_CSS + petal_css(h + 40, -100) + """
-.rot { animation: rot 6s linear infinite; transform-box: fill-box; transform-origin: center; }
-@keyframes rot { to { transform: rotate(360deg); } }
-"""
-    body = f"""
-{meadow_card(rng, w, h, grass_h=max(24, h // 7))}
-<g class="rot">{flower(w / 2, h / 2 - size * 0.9 - 8, max(1.2, size / 16))}</g>
-<text x="{w / 2}" y="{h / 2 + size * 0.9:.0f}" text-anchor="middle" font-size="{size}" font-weight="800"
-      fill="{t.INK}" stroke="#ffffff" stroke-width="{max(3, size // 5)}" style="paint-order: stroke fill"
-      stroke-linejoin="round">{esc(label)}</text>
-"""
-    return document(w, h, label, defs, css, body, fonts.css(label, (800,)))

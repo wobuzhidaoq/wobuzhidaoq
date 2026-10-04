@@ -1,7 +1,7 @@
 """Стили профиля. Каждый стиль — модуль с одинаковым набором функций:
 
 header(cfg, ctx), divider(ctx), footer(cfg, ctx), status(stats, derived, cfg, ctx, exclude),
-quote(quotes, ctx), anime(data, username, ctx, max_items), placeholder(w, h, label, ctx).
+quote(quotes, ctx), anime(data, username, ctx, max_items).
 """
 
 import importlib

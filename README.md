@@ -61,36 +61,6 @@
 
 <p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
 
-<h2 align="center">📊 Статистика · 統計</h2>
-
-<!-- STATS:START -->
-<p align="center">
-  <img src="./assets/generated/stats.svg" height="180" alt="Статистика GitHub"/>
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=wobuzhidaoq&locale=ru&border=111111&border_radius=2&background=FFFFFF&stroke=111111&ring=111111&fire=111111&currStreakNum=111111&sideNums=111111&currStreakLabel=111111&sideLabels=444444&dates=777777" alt="Серия дней с коммитами"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=wobuzhidaoq&bg_color=ffffff&color=111111&title_color=111111&line=111111&point=111111&area=true&area_color=bdbdbd&border_color=111111&radius=2&custom_title=%D0%A1%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0+%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8+%C2%B7+%E6%B4%BB%E5%8B%95" width="100%" alt="График активности"/>
-</p>
-
-<p align="center">
-  <img src="./assets/generated/3d-sakura.svg" width="100%" alt="3D-календарь вкладов"/>
-</p>
-<!-- STATS:END -->
-
-<p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
-
-<h2 align="center">🐍 Змейка ест мои коммиты · 蛇</h2>
-
-<p align="center">
-  <img src="./assets/generated/snake.svg" width="100%" alt="Змейка, которая ест клетки графика вкладов"/>
-</p>
-
-<p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
-
 <h2 align="center">💬 Цитата дня · 今日の名言</h2>
 
 <p align="center">
@@ -105,10 +75,7 @@
 
 <!-- VIEWS:START -->
 <p align="center">
-  <img src="https://count.getloli.com/@wobuzhidaoq?name=wobuzhidaoq&theme=sketch-1&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto" alt="Счётчик просмотров профиля"/>
-  <br/>
-  <sub>☝️ столько путников уже заглянуло в профиль</sub>
-  <br/><sub>🎨 Котик «え?» — Reboot_kitten (小红书)</sub>
+  <img src="https://count.getloli.com/@wobuzhidaoq?name=wobuzhidaoq&theme=moebooru&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto" alt="Счётчик просмотров профиля"/>
 </p>
 <!-- VIEWS:END -->
 
