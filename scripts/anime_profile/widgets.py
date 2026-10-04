@@ -119,8 +119,10 @@ def views(cfg: dict, style: dict) -> str:
     params = urlencode({"name": login, "theme": style["views_theme"], "padding": 7, "offset": 0, "align": "top",
                         "scale": 1, "pixelated": 1, "darkmode": 0})  # 0 — не приглушать в тёмной теме
     credits = "".join(f"\n  <br/><sub>🎨 {c}</sub>" for c in cfg.get("credits", []))
+    caption = cfg.get("views", {}).get("caption", "")
+    caption_img = (f'\n  <img src="./assets/generated/views.svg" height="100" alt="{caption}"/>' if caption else "")
     return (f'<p align="center">\n  <img src="https://count.getloli.com/@{login}?{params}" '
-            f'alt="Счётчик просмотров профиля"/>{credits}\n</p>')
+            f'alt="Счётчик просмотров профиля"/>{caption_img}{credits}\n</p>')
 
 
 BLOCKS = {"TYPING": typing, "BADGES": badges, "SKILLS": skills, "VIEWS": views}

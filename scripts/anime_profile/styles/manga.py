@@ -10,7 +10,7 @@ import random
 
 from .. import status_window
 from ..quote import PINNED_CAPTION, attribution, pick
-from ..svg import SPARKLE_PATH, balanced_wrap, document, esc, truncate, wrap
+from ..svg import SPARKLE_PATH, balanced_wrap, document, esc, speech_bubble, truncate, wrap
 
 INK = "#111111"
 GRAY = "#555555"
@@ -139,11 +139,7 @@ def focus_lines(rng: random.Random, cx, cy, rx, ry, count: int = 110, length: fl
 
 def bubble(cx, cy, rx, ry, tx, ty, spread: float = 0.17, stroke: float = 3) -> str:
     """Облачко-реплика: эллипс с хвостиком, указывающим на говорящего."""
-    a0 = math.atan2((ty - cy) / ry, (tx - cx) / rx)
-    x1, y1 = cx + rx * math.cos(a0 + spread), cy + ry * math.sin(a0 + spread)
-    x2, y2 = cx + rx * math.cos(a0 - spread), cy + ry * math.sin(a0 - spread)
-    return (f'<path d="M{x1:.1f},{y1:.1f} A{rx},{ry} 0 1 1 {x2:.1f},{y2:.1f} L{tx},{ty} Z" fill="#fff" '
-            f'stroke="{INK}" stroke-width="{stroke}" stroke-linejoin="round"/>')
+    return speech_bubble(cx, cy, rx, ry, tx, ty, INK, stroke, "#fff", spread)
 
 
 def tone(mid: str, x, y, w, h, pattern: str = "dots", fade: str = "fadeOut", opacity: float = 1.0) -> str:
@@ -469,3 +465,30 @@ def anime(data: dict, username: str, ctx, max_items: int = 5) -> str:
     p.append(f'<rect x="8" y="8" width="884" height="{h - 16}" fill="none" stroke="{INK}" stroke-width="5" '
              f'filter="url(#ink)"/>')
     return document(w, h, f"Сейчас смотрю ({data['service']})", DEFS, CSS, "".join(p), T.fonts(ctx))
+
+
+# ---------------------------------------------------------------------------
+# Подпись к счётчику просмотров: панель с облачком, которое указывает на девочек слева
+# ---------------------------------------------------------------------------
+
+
+def views_caption(cfg: dict, ctx) -> str:
+    rng = random.Random(13)
+    T = Text()
+    w, h = 400, 130
+    lines = balanced_wrap(cfg.get("caption", ""), 22, 2)
+    cx, cy = 226, 70
+    text = "".join(T.b(cx, cy - (len(lines) - 1) * 12 + 7 + i * 24, line, 20, INK, "middle")
+                   for i, line in enumerate(lines))
+    inner = (
+        tone("vt", 30, 8, 362, 114, "dots", "fadeOut", .6)
+        + focus_lines(rng, 236, 68, 150, 46, 70, 420)
+        + f'<g transform="rotate(10 352 30)">{T.t(352, 36, "ワイワイ", 17, "#fff", "middle", INK_OUTLINE)}</g>'
+    )
+    body = (
+        panel("vp", [(30, 8), (392, 8), (384, 122), (38, 122)], inner, 4)
+        + f'<rect x="46" y="13" width="98" height="25" fill="{INK}"/>'
+        + T.t(95, 31, cfg.get("tab", ""), 15, "#fff", "middle")
+        + f'<g class="pop" style="animation-delay:.3s">{bubble(cx, cy, 150, 44, 4, 98)}{text}</g>'
+    )
+    return document(w, h, cfg.get("caption", ""), DEFS, CSS, body, T.fonts(ctx))

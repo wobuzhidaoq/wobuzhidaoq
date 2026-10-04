@@ -73,6 +73,7 @@
 <!-- VIEWS:START -->
 <p align="center">
   <img src="https://count.getloli.com/@wobuzhidaoq?name=wobuzhidaoq&theme=moebooru&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=0" alt="Счётчик просмотров профиля"/>
+  <img src="./assets/generated/views.svg" height="100" alt="Столько путников уже заглянуло ко мне!"/>
 </p>
 <!-- VIEWS:END -->
 
