@@ -31,5 +31,6 @@
     "strongColor": "#111111", "weakColor": "#6b6b6b", "radarColor": "#111111",
     "contribColors": ["#eeeeee", "#c4c4c4", "#8f8f8f", "#555555", "#1a1a1a"]
   },
-  "views_theme": "sketch-1"
+  "views_theme": "sketch-1",
+  "grayscale": ["3d-sakura.svg"]
 }

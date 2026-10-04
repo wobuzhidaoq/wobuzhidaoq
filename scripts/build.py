@@ -71,6 +71,24 @@ def add_snake_background(path: Path, bg: dict) -> None:
     print("  ✿ snake.svg — фон в цветах стиля")
 
 
+def make_grayscale(path: Path) -> None:
+    """Обесцвечивает чужую картинку (например, 3D-календарь), если стиль чёрно-белый."""
+    if not path.exists():
+        return
+    svg = path.read_text(encoding="utf-8")
+    if 'id="bw-wrap"' in svg:
+        return
+    opening = re.search(r"<svg\b[^>]*>", svg)
+    end = svg.rfind("</svg>")
+    if not opening or end < 0:
+        return
+    head = ('<defs><filter id="bw-gray"><feColorMatrix type="saturate" values="0"/></filter></defs>'
+            '<g id="bw-wrap" filter="url(#bw-gray)">')
+    svg = svg[:opening.end()] + head + svg[opening.end():end] + "</g>" + svg[end:]
+    path.write_text(svg, encoding="utf-8")
+    print(f"  ✿ {path.name} — обесцвечено")
+
+
 def actions_env() -> int:
     """Печатает настройки стиля в формате $GITHUB_OUTPUT для шагов workflow."""
     _, name, style_cfg = load_config()
@@ -161,6 +179,8 @@ def main() -> int:
         if not (OUT / name).exists():
             write(name, style.placeholder(w, h, label, ctx))
     add_snake_background(OUT / "snake.svg", style_cfg["snake_background"])
+    for name in style_cfg.get("grayscale", []):
+        make_grayscale(OUT / name)
     print("готово ✨" if ok else "готово, но с ошибками (см. выше)")
     return 0 if ok else 1
 
