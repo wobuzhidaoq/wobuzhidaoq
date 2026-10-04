@@ -11,55 +11,57 @@ from .scenery import CARD_DEFS, glass, meadow_card
 from .svg import PETAL_GRADIENT, document, esc, petal_css, truncate
 
 CLASSES = {
-    "Python": "Змеиный заклинатель",
-    "JavaScript": "Иллюзионист JS",
-    "TypeScript": "Рыцарь строгих типов",
-    "Java": "Кофейный алхимик",
-    "Kotlin": "Котлин-самурай",
-    "C": "Повелитель памяти",
-    "C++": "Некромант указателей",
-    "C#": "Паладин .NET",
-    "Go": "Ниндзя-суслик",
-    "Rust": "Кузнец-краб",
-    "Ruby": "Рубиновый маг",
-    "PHP": "Старейшина слонов",
-    "Swift": "Ласточка-разведчица",
-    "Dart": "Метатель дротиков",
-    "Lua": "Лунный маг",
-    "Shell": "Шаман терминала",
-    "PowerShell": "Шаман терминала",
-    "HTML": "Архитектор разметки",
-    "CSS": "Мастер стилей",
-    "SCSS": "Мастер стилей",
-    "Vue": "Призыватель компонентов",
-    "Svelte": "Призыватель компонентов",
-    "Jupyter Notebook": "Оракул данных",
-    "R": "Оракул данных",
-    "Haskell": "Монах лямбда-храма",
-    "Elixir": "Алхимик эликсиров",
-    "Assembly": "Древний рунописец",
-    "GDScript": "Создатель миров",
+    "Python": "Serpent Summoner",
+    "JavaScript": "JS Illusionist",
+    "TypeScript": "Knight of Strict Types",
+    "Java": "Coffee Alchemist",
+    "Kotlin": "Kotlin Samurai",
+    "C": "Lord of Memory",
+    "C++": "Pointer Necromancer",
+    "C#": ".NET Paladin",
+    "Go": "Gopher Ninja",
+    "Rust": "Crab Blacksmith",
+    "Ruby": "Ruby Mage",
+    "PHP": "Elephant Elder",
+    "Swift": "Swallow Scout",
+    "Dart": "Dart Thrower",
+    "Lua": "Moon Mage",
+    "Shell": "Terminal Shaman",
+    "PowerShell": "Terminal Shaman",
+    "HTML": "Markup Architect",
+    "CSS": "Style Master",
+    "SCSS": "Style Master",
+    "Vue": "Component Summoner",
+    "Svelte": "Component Summoner",
+    "Jupyter Notebook": "Data Oracle",
+    "R": "Data Oracle",
+    "Haskell": "Lambda Temple Monk",
+    "Elixir": "Elixir Alchemist",
+    "Assembly": "Ancient Rune Scribe",
+    "GDScript": "World Maker",
+    "React": "Component Summoner",
+    "Tailwind CSS": "Style Master",
 }
 
 # (условие, титул) — берётся первый подходящий.
 TITLES = [
-    (lambda s: s["streak_longest"] >= 100, "Бессмертный стрик"),
-    (lambda s: s["contributions_year"] >= 2000, "Повелитель коммитов"),
-    (lambda s: s["stars"] >= 100, "Звёздный странник"),
-    (lambda s: s["streak_longest"] >= 30, "Неутомимый"),
-    (lambda s: s["contributions_year"] >= 500, "Кодер-самурай"),
-    (lambda s: s["followers"] >= 50, "Сэмпай гильдии"),
-    (lambda s: s["prs_total"] >= 20, "Мастер пулл-реквестов"),
-    (lambda s: s["public_repos"] >= 10, "Собиратель репозиториев"),
-    (lambda s: s["contributions_year"] >= 100, "Подающий надежды"),
-    (lambda s: True, "Новичок из стартовой деревни"),
+    (lambda s: s["streak_longest"] >= 100, "Immortal Streak"),
+    (lambda s: s["contributions_year"] >= 2000, "Commit Overlord"),
+    (lambda s: s["stars"] >= 100, "Star Wanderer"),
+    (lambda s: s["streak_longest"] >= 30, "The Tireless"),
+    (lambda s: s["contributions_year"] >= 500, "Code Samurai"),
+    (lambda s: s["followers"] >= 50, "Guild Senpai"),
+    (lambda s: s["prs_total"] >= 20, "Pull Request Master"),
+    (lambda s: s["public_repos"] >= 10, "Repo Collector"),
+    (lambda s: s["contributions_year"] >= 100, "Promising Rookie"),
+    (lambda s: True, "Rookie from the Starting Village"),
 ]
 
 RANKS = [(5, "F"), (10, "E"), (15, "D"), (22, "C"), (30, "B"), (40, "A"), (55, "S"), (75, "SS")]
 
 
 def _fmt(n: int) -> str:
-    return f"{n:,}".replace(",", " ")
+    return f"{n:,}"
 
 
 def compute(stats: dict, derived: dict, cfg: dict) -> dict:
@@ -77,9 +79,9 @@ def compute(stats: dict, derived: dict, cfg: dict) -> dict:
         "xp_into": xp - floor_xp,
         "xp_span": next_xp - floor_xp,
         "rank": rank,
-        "class": cfg.get("class") or CLASSES.get(top_lang, "Странствующий кодер"),
+        "class": cfg.get("class") or CLASSES.get(top_lang, "Wandering Coder"),
         "title": cfg.get("title") or next(title for cond, title in TITLES if cond(s)),
-        "race": cfg.get("race", "Человек (?)"),
+        "race": cfg.get("race", "Human (?)"),
         "guild_year": s["created_at"][:4],
     }
 
@@ -121,15 +123,15 @@ def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
     parts.append(f'<rect x="34" y="37" width="10" height="10" fill="{t.SKY}" transform="rotate(45 39 42)"/>')
     parts.append(text(54, 48, "STATUS", 15, 800, t.ACCENT_2, extra='letter-spacing="5"'))
     parts.append(text(140, 48, "ステータス", 15, 800, t.ACCENT, extra='letter-spacing="2"'))
-    parts.append(text(864, 47, f"Обновлено: {now:%d.%m.%Y · %H:%M} UTC", 12, 500, t.INK_SOFT, "end"))
+    parts.append(text(864, 47, f"Updated: {now:%b %d, %Y · %H:%M} UTC", 12, 500, t.INK_SOFT, "end"))
     parts.append('<rect x="36" y="64" width="828" height="2" rx="1" fill="url(#hline)"/>')
 
     # --- левая колонка: персонаж ---
     parts.append(text(36, 110, truncate(stats["name"], 16), 30, 800, t.INK))
-    texts.append(f"@{stats['login']} · Ранг гильдии {info['rank']}")
+    texts.append(f"@{stats['login']} · Guild rank {info['rank']}")
     parts.append(
         f'<text x="36" y="137" font-size="14" font-weight="500" fill="{t.INK_SOFT}">'
-        f'@{esc(stats["login"])} · Ранг гильдии '
+        f'@{esc(stats["login"])} · Guild rank '
         f'<tspan fill="{t.GOLD}" font-weight="800" font-size="17">{info["rank"]}</tspan></text>'
     )
     parts.append(f'<rect x="338" y="82" width="92" height="64" rx="14" fill="#ffffff" '
@@ -138,10 +140,10 @@ def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
     parts.append(text(384, 136, info["level"], 30, 800, t.ACCENT, "middle"))
 
     rows = [
-        ("Класс", info["class"]),
-        ("Титул", f"«{info['title']}»"),
-        ("Раса", info["race"]),
-        ("Гильдия", f"GitHub · с {info['guild_year']} г."),
+        ("Class", info["class"]),
+        ("Title", f"“{info['title']}”"),
+        ("Race", info["race"]),
+        ("Guild", f"GitHub · since {info['guild_year']}"),
     ]
     for i, (label, value) in enumerate(rows):
         y = 180 + i * 26
@@ -149,11 +151,11 @@ def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
         parts.append(text(118, y, truncate(value, 34), 14, 800 if i < 2 else 500, t.INK))
 
     bars = [
-        ("EXP", "опыт до следующего уровня", info["xp_into"], info["xp_span"],
+        ("EXP", "experience to next level", info["xp_into"], info["xp_span"],
          f"{_fmt(info['xp_into'])} / {_fmt(info['xp_span'])}", "url(#gExp)", t.ACCENT),
-        ("HP", "серия дней с коммитами", derived["streak_current"], max(derived["streak_longest"], 1),
-         f"{derived['streak_current']} дн. · рекорд {derived['streak_longest']}", "url(#gHp)", "#e8456b"),
-        ("MP", "активных дней из 30", derived["active_days_30"], 30,
+        ("HP", "commit streak", derived["streak_current"], max(derived["streak_longest"], 1),
+         f"{derived['streak_current']} days · best {derived['streak_longest']}", "url(#gHp)", "#e8456b"),
+        ("MP", "active days out of 30", derived["active_days_30"], 30,
          f"{derived['active_days_30']} / 30", "url(#gMp)", t.ACCENT_2),
     ]
     for i, (tag, desc, value, maximum, label, grad, color) in enumerate(bars):
@@ -168,14 +170,14 @@ def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
                          f'width="{max(394 * ratio, 6):.1f}" height="10" rx="5" fill="{grad}"/>')
 
     # --- правая колонка: характеристики ---
-    parts.append(text(470, 100, "能力値 · Характеристики", 13, 800, t.ACCENT_2, extra='letter-spacing="2"'))
+    parts.append(text(470, 100, "能力値 · Attributes", 13, 800, t.ACCENT_2, extra='letter-spacing="2"'))
     cells = [
-        ("STR", "коммиты за год", stats["commits_year"]),
-        ("INT", "пулл-реквесты", stats["prs_total"]),
+        ("STR", "commits this year", stats["commits_year"]),
+        ("INT", "pull requests", stats["prs_total"]),
         ("DEX", "issues", stats["issues_total"]),
-        ("VIT", "макс. серия, дн.", derived["streak_longest"]),
-        ("CHA", "подписчики", stats["followers"]),
-        ("LUK", "звёзды", stats["stars"]),
+        ("VIT", "best streak, days", derived["streak_longest"]),
+        ("CHA", "followers", stats["followers"]),
+        ("LUK", "stars", stats["stars"]),
     ]
     for i, (abbr, desc, value) in enumerate(cells):
         x, y = 470 + (i % 2) * 204, 114 + (i // 2) * 66
@@ -186,7 +188,7 @@ def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
         parts.append(text(x + 176, y + 38, _fmt(value), 24, 800, t.INK, "end"))
 
     # --- навыки (языки) ---
-    parts.append(text(470, 334, "スキル · Навыки", 13, 800, t.ACCENT_2, extra='letter-spacing="2"'))
+    parts.append(text(470, 334, "スキル · Skills", 13, 800, t.ACCENT_2, extra='letter-spacing="2"'))
     if skills:
         step = 22 if len(skills) <= 5 else 19
         for i, sk in enumerate(skills):
@@ -199,16 +201,16 @@ def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
                          f'width="{max(196 * sk["ratio"], 4):.1f}" height="6" rx="3" fill="{color}"/>')
             parts.append(text(864, y, sk["label"], 12, 500, t.INK_SOFT, "end"))
     else:
-        parts.append(text(470, 366, "Навыки ещё не раскрыты… (・_・;)", 14, 500, t.INK_SOFT))
+        parts.append(text(470, 366, "Skills not revealed yet… (・_・;)", 14, 500, t.INK_SOFT))
 
     # --- нижняя полоса: снаряжение и журнал ---
     parts.append('<rect x="36" y="466" width="828" height="1.5" fill="url(#hline)" opacity=".7"/>')
-    parts.append(text(36, 490, "装備 · Снаряжение", 12, 800, t.ACCENT_2, extra='letter-spacing="2"'))
-    equipment = " · ".join(cfg.get("equipment", [])) or "Пока только палка и крышка от кастрюли"
+    parts.append(text(36, 490, "装備 · Equipment", 12, 800, t.ACCENT_2, extra='letter-spacing="2"'))
+    equipment = " · ".join(cfg.get("equipment", [])) or "Just a stick and a pot lid for now"
     parts.append(text(36, 514, truncate(equipment, 82), 13, 500, t.INK))
 
     weekly = derived["weekly"] or [0]
-    journal = f"Журнал приключений · {len(weekly)} нед." if derived["weekly"] else "Журнал приключений"
+    journal = f"Adventure log · {len(weekly)} wks" if derived["weekly"] else "Adventure log"
     parts.append(text(864, 490, journal, 12, 800, t.ACCENT_2, "end", 'letter-spacing="1"'))
     peak = max(weekly) or 1
     bar_w, gap = 6, 2.2
@@ -251,4 +253,4 @@ def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
 {cat_paws}
 """
     font_css = fonts.css("".join(texts) + "0123456789", (500, 800))
-    return document(w, h, f"Статус: {stats['name']} — Lv. {info['level']}", defs, css, body, font_css)
+    return document(w, h, f"Status: {stats['name']} — Lv. {info['level']}", defs, css, body, font_css)

@@ -21,15 +21,15 @@ def pick(quotes: list[dict], day: dt.date) -> tuple[int, dict]:
     return order[pos], quotes[order[pos]]
 
 
-PINNED_CAPTION = "座右の銘 · мой девиз"
+PINNED_CAPTION = "座右の銘 · my motto"
 
 
 def attribution(q: dict) -> str:
-    """«— Персонаж · «Аниме»», «— Автор» или пусто, если автор не указан."""
+    """«— Персонаж · Аниме», «— Автор» или пусто, если автор не указан."""
     who, anime = q.get("who", ""), q.get("anime", "")
     if not who:
         return ""
-    return f"— {who} · «{anime}»" if anime else f"— {who}"
+    return f"— {who} · {anime}" if anime else f"— {who}"
 
 
 def build(quotes: list[dict], fonts: FontEmbedder, day: dt.date | None = None, pinned: bool = False) -> str:
@@ -44,7 +44,7 @@ def build(quotes: list[dict], fonts: FontEmbedder, day: dt.date | None = None, p
     cy = h / 2
     rng = random.Random(day.toordinal())
 
-    caption = PINNED_CAPTION if pinned else f"Цитата дня · {day:%d.%m.%Y}"
+    caption = PINNED_CAPTION if pinned else f"Quote of the day · {day:%b %d, %Y}"
     author = attribution(q)
     vertical = "座右の銘" if pinned else "今日の名言"
 

@@ -70,18 +70,18 @@ def typing(cfg: dict, style: dict) -> str:
     login = cfg.get("github_username", "")
     return (f'<p align="center">\n  <a href="https://github.com/{login}">\n'
             f'    <img src="https://readme-typing-svg.demolab.com?{params}&lines={lines}" '
-            f'alt="Печатающийся текст с приветствием"/>\n  </a>\n</p>')
+            f'alt="Typing greeting"/>\n  </a>\n</p>')
 
 
 def badges(cfg: dict, style: dict) -> str:
     b = style["badges"]
     login = cfg.get("github_username", "")
     followers = (f'<a href="https://github.com/{login}?tab=followers"><img src="https://img.shields.io/github/'
-                 f'followers/{login}?{urlencode({"label": "Подписчики", "style": "for-the-badge", "logo": "github", "logoColor": "white", "color": b["followers"]["color"], "labelColor": b["followers"]["labelColor"]})}" '
-                 f'alt="Подписчики"/></a>')
+                 f'followers/{login}?{urlencode({"label": "Followers", "style": "for-the-badge", "logo": "github", "logoColor": "white", "color": b["followers"]["color"], "labelColor": b["followers"]["labelColor"]})}" '
+                 f'alt="Followers"/></a>')
     items = [
         followers,
-        _shield("Уровень силы", "больше 9000!", b["power"]["color"], b["power"]["labelColor"]),
+        _shield("Power level", "over 9000!", b["power"]["color"], b["power"]["labelColor"]),
     ]
     colors = b["social"]
     for i, social in enumerate(s for s in cfg.get("socials", []) if s.get("url")):
@@ -122,7 +122,7 @@ def views(cfg: dict, style: dict) -> str:
     caption = cfg.get("views", {}).get("caption", "")
     caption_img = (f'\n  <img src="./assets/generated/views.svg" height="100" alt="{caption}"/>' if caption else "")
     return (f'<p align="center">\n  <img src="https://count.getloli.com/@{login}?{params}" '
-            f'alt="Счётчик просмотров профиля"/>{caption_img}{credits}\n</p>')
+            f'alt="Profile views counter"/>{caption_img}{credits}\n</p>')
 
 
 BLOCKS = {"TYPING": typing, "BADGES": badges, "SKILLS": skills, "VIEWS": views}

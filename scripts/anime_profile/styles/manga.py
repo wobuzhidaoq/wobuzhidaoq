@@ -117,7 +117,7 @@ def picture(ctx, key: str, x, y, w, h, max_side: int = 640) -> str:
     if not uri:
         return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="url(#dots)" opacity=".35"/>'
                 f'<text class="b" x="{x + w / 2}" y="{y + h / 2}" font-size="14" text-anchor="middle" '
-                f'fill="{GRAY}">картинка «{esc(key)}»</text>')
+                f'fill="{GRAY}">image “{esc(key)}”</text>')
     align = ctx.images.align(key)
     return (f'<image class="zoom" href="{uri}" x="{x}" y="{y}" width="{w}" height="{h}" '
             f'preserveAspectRatio="{align} slice"/>')
@@ -268,7 +268,7 @@ def footer(cfg: dict, ctx) -> str:
         tone("fr", 850, 16, 334, 248, "dots", "fadeDown", .5)
         + T.t(1022, 84, "次回も", 26, INK, "middle")
         + T.t(1022, 120, "お楽しみに！", 26, INK, "middle")
-        + T.b(1022, 148, "Продолжение следует…", 14, GRAY, "middle")
+        + T.b(1022, 148, "To be continued…", 14, GRAY, "middle")
         + f'<g class="slide" style="animation-delay:.5s"><polygon points="{arrow}" fill="{INK}"/>'
         + T.t(1046, 208, "つづく…", 20, "#fff", "middle") + "</g>"
     )
@@ -302,7 +302,7 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
     p.append(f'<rect x="8" y="8" width="884" height="56" fill="{INK}"/>')
     p.append(T.t(30, 47, "STATUS", 24, "#fff", extra='letter-spacing="6"'))
     p.append(T.b(196, 45, "ステータス", 18, "#fff"))
-    p.append(T.b(872, 44, f"Обновлено: {now:%d.%m.%Y · %H:%M} UTC", 13, "#d0d0d0", "end", 400))
+    p.append(T.b(872, 44, f"Updated: {now:%b %d, %Y · %H:%M} UTC", 13, "#d0d0d0", "end", 400))
 
     # левая колонка: портрет и персонаж
     p.append(panel("sp", [(28, 82), (290, 82), (290, 344), (28, 344)], picture(ctx, "status", 28, 82, 262, 262, 560), 3))
@@ -318,19 +318,19 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
     p.append(f'<rect x="134" y="450" width="156" height="12" fill="#fff" stroke="{INK}" stroke-width="2"/>')
     if ratio > 0:
         p.append(f'<rect class="grow" x="134" y="450" width="{max(156 * ratio, 4):.1f}" height="12" fill="{INK}"/>')
-    p.append(T.b(134, 478, "до следующего уровня", 11, SOFT, weight=400))
-    rows = [("Класс", info["class"]), ("Титул", f"«{info['title']}»"), ("Раса", info["race"]),
-            ("Гильдия", f"GitHub · с {info['guild_year']} г.")]
+    p.append(T.b(134, 478, "to next level", 11, SOFT, weight=400))
+    rows = [("Class", info["class"]), ("Title", f"“{info['title']}”"), ("Race", info["race"]),
+            ("Guild", f"GitHub · since {info['guild_year']}")]
     for i, (label, value) in enumerate(rows):
         y = 512 + i * 22
         p.append(T.b(28, y, label, 12, SOFT, weight=400))
         p.append(T.b(96, y, truncate(value, 27), 13))
 
     # правая колонка: характеристики
-    p.append(T.t(316, 98, "能力値 · Характеристики", 15))
-    cells = [("STR", "коммиты за год", stats["commits_year"]), ("INT", "пулл-реквесты", stats["prs_total"]),
-             ("DEX", "issues", stats["issues_total"]), ("VIT", "макс. серия", derived["streak_longest"]),
-             ("CHA", "подписчики", stats["followers"]), ("LUK", "звёзды", stats["stars"])]
+    p.append(T.t(316, 98, "能力値 · Attributes", 15))
+    cells = [("STR", "commits this year", stats["commits_year"]), ("INT", "pull requests", stats["prs_total"]),
+             ("DEX", "issues", stats["issues_total"]), ("VIT", "best streak", derived["streak_longest"]),
+             ("CHA", "followers", stats["followers"]), ("LUK", "stars", stats["stars"])]
     for i, (abbr, desc, value) in enumerate(cells):
         x, y = 316 + (i % 3) * 190, 112 + (i // 3) * 78
         p.append(f'<rect x="{x}" y="{y}" width="178" height="66" fill="#fff" stroke="{INK}" stroke-width="2.5"/>')
@@ -340,9 +340,9 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
         p.append(T.b(x + 58, y + 16, desc, 11, GRAY, weight=400))
         p.append(T.t(x + 166, y + 56, fmt(value), 26, INK, "end"))
 
-    bars = [("HP", "серия дней с коммитами", derived["streak_current"], max(derived["streak_longest"], 1),
-             f"{derived['streak_current']} дн. · рекорд {derived['streak_longest']}", "url(#hatch)"),
-            ("MP", "активных дней из 30", derived["active_days_30"], 30, f"{derived['active_days_30']} / 30",
+    bars = [("HP", "commit streak", derived["streak_current"], max(derived["streak_longest"], 1),
+             f"{derived['streak_current']} days · best {derived['streak_longest']}", "url(#hatch)"),
+            ("MP", "active days out of 30", derived["active_days_30"], 30, f"{derived['active_days_30']} / 30",
              "url(#dotsBig)")]
     for i, (tag, desc, value, maximum, label, fill) in enumerate(bars):
         y = 288 + i * 46
@@ -355,7 +355,7 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
             p.append(f'<rect class="grow" style="animation-delay:{.3 + i * .2}s" x="317" y="{y + 9}" '
                      f'width="{max(556 * r, 4):.1f}" height="12" fill="{fill}"/>')
 
-    p.append(T.t(316, 394, "スキル · Навыки", 15))
+    p.append(T.t(316, 394, "スキル · Skills", 15))
     if skills:
         step = 24 if len(skills) <= 5 else 21
         for i, sk in enumerate(skills):
@@ -368,14 +368,14 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
                      f'width="{max(338 * sk["ratio"], 3):.1f}" height="8" fill="{fill}"/>')
             p.append(T.b(874, y, sk["label"], 12, GRAY, "end"))
     else:
-        p.append(T.b(316, 430, "Навыки ещё не раскрыты… (・_・;)", 14, GRAY))
+        p.append(T.b(316, 430, "Skills not revealed yet… (・_・;)", 14, GRAY))
 
-    p.append(T.t(316, 554, "装備 · Снаряжение", 12))
-    equipment = " · ".join(cfg.get("equipment", [])) or "Пока только палка и крышка от кастрюли"
+    p.append(T.t(316, 554, "装備 · Equipment", 12))
+    equipment = " · ".join(cfg.get("equipment", [])) or "Just a stick and a pot lid for now"
     for i, line in enumerate(wrap(equipment, 56, 2)):
-        p.append(T.b(316, 571 + i * 14, line, 11.5))
+        p.append(T.b(316, 569 + i * 13, line, 11.5))
     weekly = derived["weekly"] or [0]
-    p.append(T.t(874, 554, f"Журнал · {len(weekly)} нед." if derived["weekly"] else "Журнал", 11, INK, "end"))
+    p.append(T.t(874, 554, f"Log · {len(weekly)} wks" if derived["weekly"] else "Log", 11, INK, "end"))
     peak = max(weekly) or 1
     start = 874 - len(weekly) * 7.2 + 1.2
     for i, v in enumerate(weekly):
@@ -387,7 +387,7 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
     body = ('<rect x="8" y="8" width="884" height="584" fill="#fff"/>' + "".join(p)
             + f'<rect x="8" y="8" width="884" height="584" fill="none" stroke="{INK}" stroke-width="5" '
               f'filter="url(#ink)"/>')
-    return document(w, h, f"Статус: {stats['name']} — Lv. {info['level']}", DEFS, CSS, body, T.fonts(ctx))
+    return document(w, h, f"Status: {stats['name']} — Lv. {info['level']}", DEFS, CSS, body, T.fonts(ctx))
 
 
 # ---------------------------------------------------------------------------
@@ -412,7 +412,7 @@ def quote(quotes: list[dict], ctx, day: dt.date | None = None, pinned: bool = Fa
         + panel("qp", [(24, 24), (274, 24), (274, h - 24), (24, h - 24)], picture(ctx, "quote", 24, 24, 250, h - 48, 560), 3)
         + f'<g transform="rotate(8 228 64)">{T.t(228, 72, "じーっ", 22, "#fff", "middle", INK_OUTLINE)}</g>'
         + f'<rect x="300" y="26" width="300" height="30" fill="{INK}"/>'
-        + T.b(314, 47, PINNED_CAPTION if pinned else f"今日の名言 · {day:%d.%m.%Y}", 15, "#fff")
+        + T.b(314, 47, PINNED_CAPTION if pinned else f"今日の名言 · {day:%b %d, %Y}", 15, "#fff")
         + f'<g class="pop" style="animation-delay:.2s">{bubble(cx, cy, 274, ry, 280, cy + 30)}{text}</g>'
         + (T.b(874, h - 22, attribution(q), 16, INK, "end", extra=WHITE_HALO) if attribution(q) else "")
         + f'<rect x="8" y="8" width="{w - 16}" height="{h - 16}" fill="none" stroke="{INK}" stroke-width="5" '
@@ -435,11 +435,11 @@ def anime(data: dict, username: str, ctx, max_items: int = 5) -> str:
     h = 410 if items else 190
     p = [f'<rect x="8" y="8" width="884" height="{h - 16}" fill="#fff"/>',
          f'<rect x="8" y="8" width="884" height="52" fill="{INK}"/>',
-         T.t(28, 44, "視聴中 · Сейчас смотрю", 20, "#fff"),
+         T.t(28, 44, "視聴中 · Now watching", 20, "#fff"),
          T.b(872, 42, f"{data['service']} · {username}", 13, "#d0d0d0", "end"),
          T.b(28, 88, data["summary"], 13, GRAY, weight=400)]
     if not items:
-        p.append(T.b(450, 140, "Сейчас ничего не смотрю… выбираю следующий тайтл (´・ω・`)", 16, INK, "middle"))
+        p.append(T.b(450, 140, "Nothing on my list right now… picking the next one (´・ω・`)", 16, INK, "middle"))
     col_w, gap = 164, 10
     x0 = (w - (len(items) * col_w + max(len(items) - 1, 0) * gap)) / 2
     for i, item in enumerate(items):
@@ -460,11 +460,11 @@ def anime(data: dict, username: str, ctx, max_items: int = 5) -> str:
         if r > 0:
             p.append(f'<rect class="grow" x="{ix + 1:.1f}" y="{by + 1}" width="{max((iw - 2) * r, 3):.1f}" '
                      f'height="6" fill="url(#hatch)"/>')
-        p.append(T.b(cx, by + 26, f"эп. {item['progress']} / {total or '?'}", 12, GRAY, "middle", 400))
+        p.append(T.b(cx, by + 26, f"ep. {item['progress']} / {total or '?'}", 12, GRAY, "middle", 400))
         p.append("</g>")
     p.append(f'<rect x="8" y="8" width="884" height="{h - 16}" fill="none" stroke="{INK}" stroke-width="5" '
              f'filter="url(#ink)"/>')
-    return document(w, h, f"Сейчас смотрю ({data['service']})", DEFS, CSS, "".join(p), T.fonts(ctx))
+    return document(w, h, f"Now watching ({data['service']})", DEFS, CSS, "".join(p), T.fonts(ctx))
 
 
 # ---------------------------------------------------------------------------

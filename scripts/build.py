@@ -91,17 +91,17 @@ def main() -> int:
 
     print("📺 Сейчас смотрю")
     anime_cfg = cfg.get("anime_list", {})
-    block = ("<!-- Впиши свой ник AniList или Shikimori в config/profile.json → anime_list, "
-             "и здесь появится карточка «Сейчас смотрю» -->")
+    block = ("<!-- Put your AniList or Shikimori username into config/profile.json → anime_list "
+             "to show a 'Now watching' card here -->")
     if anime_cfg.get("username") and not args.no_anime:
         try:
             data = anime_list.fetch(anime_cfg)
             write("anime.svg", style.anime(data, anime_cfg["username"], ctx, anime_cfg.get("max_items", 5)))
             block = (
                 '<p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>\n\n'
-                '<h2 align="center">📺 Сейчас смотрю · 視聴中</h2>\n\n'
+                '<h2 align="center">📺 Now watching · 視聴中</h2>\n\n'
                 f'<p align="center"><a href="{data["url"]}">'
-                '<img src="./assets/generated/anime.svg" width="100%" alt="Что я сейчас смотрю"/></a></p>'
+                '<img src="./assets/generated/anime.svg" width="100%" alt="What I’m watching now"/></a></p>'
             )
         except Exception as exc:
             ok = False

@@ -6,7 +6,7 @@
   "header": {
     "greeting": "こんにちは、旅人さん！",
     "title": "wobuzhidao",
-    "subtitle": "разработчик · охотник за багами"
+    "subtitle": "developer · bug hunter"
   },
 
   "quote": {
@@ -16,29 +16,29 @@
   },
 
   "typing_lines": [
-    "こんにちは！ Я wobuzhidao (=^･ω･^=)",
-    "Пишу код под аниме-опенинги ♪",
-    "Каждый баг — новая арка сюжета",
-    "Мой код работает… и я не знаю почему (・_・;)",
-    "Plus Ultra! Ещё один коммит!",
-    "Ошибка 404: сон не найден (－_－) zzZ"
+    "こんにちは！ I'm wobuzhidao (=^･ω･^=)",
+    "Coding to anime openings ♪",
+    "Every bug is a new story arc",
+    "My code works… and I have no idea why (・_・;)",
+    "Plus Ultra! One more commit!",
+    "Error 404: sleep not found (－_－) zzZ"
   ],
 
   "status_window": {
-    "race": "Человек (наверное)",
+    "race": "Human (probably)",
     "class": "",
-    "title": "Рост 120 вес 121",
+    "title": "Height 120, weight 121",
     "equipment": [
-      "Клавиатура +3",
-      "Кружка кофе (легендарная)",
-      "Кошко ушки",
-      "Плед уюта"
+      "Keyboard +3",
+      "Coffee mug (legendary)",
+      "Cat ears",
+      "Blanket of coziness"
     ]
   },
 
   "skills": [
-    {"group": "Основной стек · Middle", "level": "Middle", "power": 80, "items": ["ts", "react", "tailwind", "shadcn"]},
-    {"group": "Изучаю с удовольствием · 勉強中", "level": "учусь", "power": 30, "items": ["rust", "cpp"]}
+    {"group": "Main stack · Middle", "level": "Middle", "power": 80, "items": ["ts", "react", "tailwind", "shadcn"]},
+    {"group": "Learning for fun · 勉強中", "level": "learning", "power": 30, "items": ["rust", "cpp"]}
   ],
 
   "socials": [
@@ -56,7 +56,7 @@
 
   "views": {
     "tab": "訪問者数",
-    "caption": "Столько путников уже заглянуло ко мне!"
+    "caption": "This many travelers have visited me!"
   },
 
   "credits": [],
@@ -73,6 +73,6 @@
 
   "footer": {
     "title": "またね～！",
-    "subtitle": "Спасибо, что заглянул!"
+    "subtitle": "Thanks for stopping by!"
   }
 }
