@@ -10,6 +10,7 @@
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import os
 import re
@@ -35,6 +36,17 @@ def write(name: str, content: str) -> None:
 def replace_block(text: str, marker: str, content: str) -> str:
     pattern = re.compile(rf"(<!-- {marker}:START -->).*?(<!-- {marker}:END -->)", re.S)
     return pattern.sub(lambda m: f"{m.group(1)}\n{content}\n{m.group(2)}", text)
+
+
+def bust_cache(readme: str) -> str:
+    """Добавляет к ссылкам на картинки ?v=<отпечаток файла>: изменилась картинка — изменилась ссылка,
+    и браузер/GitHub сразу показывают свежую версию, а не старую из кэша."""
+    def version(m: re.Match) -> str:
+        path = ROOT / m.group(1)
+        if not path.is_file():
+            return m.group(1)
+        return f"{m.group(1)}?v={hashlib.sha1(path.read_bytes()).hexdigest()[:10]}"
+    return re.sub(r"(\./assets/generated/[\w.-]+\.svg)(\?v=[0-9a-f]+)?", version, readme)
 
 
 def load_config() -> tuple[dict, str, dict]:
@@ -113,8 +125,9 @@ def main() -> int:
         print("🧷 Виджеты в README")
         for marker, render in widgets.BLOCKS.items():
             readme = replace_block(readme, marker, render(cfg, style_cfg))
-        README.write_text(readme, encoding="utf-8")
 
+    if readme is not None:
+        README.write_text(bust_cache(readme), encoding="utf-8")
     print("готово ✨" if ok else "готово, но с ошибками (см. выше)")
     return 0 if ok else 1
 

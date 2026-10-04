@@ -7,7 +7,7 @@
 -->
 
 <p align="center">
-  <img src="./assets/generated/header.svg" width="100%" alt="wobuzhidao — developer · bug hunter"/>
+  <img src="./assets/generated/header.svg?v=987bd755a3" width="100%" alt="wobuzhidao — developer · bug hunter"/>
 </p>
 
 <!-- TYPING:START -->
@@ -25,19 +25,19 @@
 </p>
 <!-- BADGES:END -->
 
-<p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
+<p align="center"><img src="./assets/generated/divider.svg?v=33be1cb7e6" width="100%" alt=""/></p>
 
 <h2 align="center">🌸 About me · 自己紹介</h2>
 
 <p align="center">
-  <img src="./assets/generated/status.svg" width="100%" alt="Isekai-style status window: level, rank, attributes and skills from GitHub data"/>
+  <img src="./assets/generated/status.svg?v=eecc74e038" width="100%" alt="Isekai-style status window: level, rank, attributes and skills from GitHub data"/>
 </p>
 
 <!-- ✏️ Anime GIF: upload a file to assets/ (e.g. assets/my.gif) and uncomment the line below:
 <p align="center"><img src="./assets/my.gif" width="360" alt="anime gif"/></p>
 -->
 
-<p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
+<p align="center"><img src="./assets/generated/divider.svg?v=33be1cb7e6" width="100%" alt=""/></p>
 
 <h2 align="center">Arsenal · 技術スタック</h2>
 
@@ -58,25 +58,25 @@
 </p>
 <!-- SKILLS:END -->
 
-<p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
+<p align="center"><img src="./assets/generated/divider.svg?v=33be1cb7e6" width="100%" alt=""/></p>
 
 <p align="center">
-  <img src="./assets/generated/quote.svg" width="100%" alt="My motto: fear of popularity will not lead you to global goals"/>
+  <img src="./assets/generated/quote.svg?v=6177955e92" width="100%" alt="My motto: fear of popularity will not lead you to global goals"/>
 </p>
 
 <!-- ANIME-LIST:START -->
 <!-- Put your AniList or Shikimori username into config/profile.json → anime_list to show a 'Now watching' card here -->
 <!-- ANIME-LIST:END -->
 
-<p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
+<p align="center"><img src="./assets/generated/divider.svg?v=33be1cb7e6" width="100%" alt=""/></p>
 
 <!-- VIEWS:START -->
 <p align="center">
   <img src="https://count.getloli.com/@wobuzhidaoq?name=wobuzhidaoq&theme=moebooru&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=0" alt="Profile views counter"/>
-  <img src="./assets/generated/views.svg" height="100" alt="This many travelers have visited me!"/>
+  <img src="./assets/generated/views.svg?v=d2d0a95a24" height="100" alt="This many travelers have visited me!"/>
 </p>
 <!-- VIEWS:END -->
 
 <p align="center">
-  <img src="./assets/generated/footer.svg" width="100%" alt="またね～ See you!"/>
+  <img src="./assets/generated/footer.svg?v=1541b17d16" width="100%" alt="またね～ See you!"/>
 </p>
