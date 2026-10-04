@@ -72,15 +72,18 @@ GitHub показывает README на странице профиля, **то�
 | `exclude_languages` | языки, которые не показывать в навыках, например `["HTML", "Jupyter Notebook"]` |
 | `anime_list.*` | карточка «Сейчас смотрю» (см. шаг 5) |
 | `footer.title`, `footer.subtitle` | надписи в подвале |
+| `style` | стиль профиля: `"manga"` или `"sakura-day"` (подробнее — [STYLES.md](STYLES.md)) |
+| `typing_lines` | строки печатающегося текста под шапкой |
+| `skills` | навыки в разделе «Арсенал» (названия как на https://skillicons.dev, например `python`, `js`, `cpp`) |
+| `socials` | соцсети: впиши ссылку в `url`, и бейдж появится; пустые ссылки не показываются |
+| `images` | картинки для панелей стиля манги (см. [STYLES.md](STYLES.md)) |
+| `credits` | подписи авторов артов под счётчиком просмотров |
 
 ### `README.md` — места с пометкой ✏️
 
 - **Обо мне** — список строк под окном статуса.
-- **Арсенал** — иконки технологий. В ссылке `skillicons.dev/icons?i=python,js,...` перечисли свои.
-  Список названий: https://github.com/tandpfun/skill-icons#icons-list
-- **Соцсети** — раскомментируй примеры Telegram/Discord под бейджами и подставь свои ники.
-- **Печатающийся текст** — собери свою ссылку на https://readme-typing-svg.demolab.com/demo/
-  (шрифт `M PLUS Rounded 1c`, цвет `FF8FC7`) и замени ей старую.
+- Навыки, соцсети и строки печатающегося текста теперь задаются в `config/profile.json`
+  (`skills`, `socials`, `typing_lines`) — README обновится сам.
 
 ### `data/quotes.json` — цитаты дня
 

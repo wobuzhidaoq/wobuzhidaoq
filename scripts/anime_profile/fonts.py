@@ -29,17 +29,17 @@ class FontEmbedder:
         self.enabled = enabled
         self._cache: dict[tuple, str] = {}
 
-    def css(self, text: str, weights: tuple[int, ...]) -> str:
+    def css(self, text: str, weights: tuple[int, ...], family: str = FONT_FAMILY) -> str:
         """Возвращает блок @font-face с встроенным сабсетом (или пустую строку)."""
         if not self.enabled:
             return ""
         chars = "".join(sorted({c for c in text if not c.isspace()}))
-        key = (chars, weights)
+        key = (chars, weights, family)
         if key in self._cache:
             return self._cache[key]
         try:
             url = _CSS_URL.format(
-                family=urllib.parse.quote_plus(FONT_FAMILY),
+                family=urllib.parse.quote_plus(family),
                 weights=";".join(str(w) for w in sorted(weights)),
                 text=urllib.parse.quote(chars, safe=""),
             )

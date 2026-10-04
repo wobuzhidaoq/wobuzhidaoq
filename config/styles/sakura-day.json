@@ -1,0 +1,39 @@
+{
+  "title": "☀️ Дневная сакура",
+  "typing": {"font": "M PLUS Rounded 1c", "weight": 700, "color": "FF4F9A"},
+  "badges": {
+    "followers": {"color": "ffd1e6", "labelColor": "ff4f9a"},
+    "power": {"color": "ffe08a", "labelColor": "5bb8f5"},
+    "anime": {"color": "dcccff", "labelColor": "6cc070"},
+    "social": ["5bb8f5", "b18cff", "ff8fc7", "6cc070", "f5a623"]
+  },
+  "skills": {"type": "skillicons", "theme": "light"},
+  "stats_options": {
+    "show_icons": true, "locale": "ru", "custom_title": "Статистика GitHub · 統計",
+    "border_color": "ffc6de", "border_radius": 16, "bg_color": "30,fff7fb,e6f5ff",
+    "title_color": "ff4f9a", "text_color": "4a2040", "icon_color": "2a86cf",
+    "ring_color": "ff4f9a", "rank_icon": "github"
+  },
+  "langs_options": {
+    "layout": "compact", "langs_count": 8, "locale": "ru", "custom_title": "Любимые языки · 言語",
+    "border_color": "ffc6de", "border_radius": 16, "bg_color": "30,fff7fb,e6f5ff",
+    "title_color": "ff4f9a", "text_color": "4a2040"
+  },
+  "streak": {
+    "border": "FFC6DE", "border_radius": "16", "background": "30,FFF7FB,E6F5FF", "stroke": "FFB3D1",
+    "ring": "FF4F9A", "fire": "FF8FC7", "currStreakNum": "4A2040", "sideNums": "4A2040",
+    "currStreakLabel": "FF4F9A", "sideLabels": "2A86CF", "dates": "8E5A7C"
+  },
+  "activity": {
+    "bg_color": "fff7fb", "color": "4a2040", "title_color": "ff4f9a", "line": "ff4f9a", "point": "5bb8f5",
+    "area": "true", "area_color": "ffb3d1", "border_color": "ffc6de", "radius": "16"
+  },
+  "snake": "color_snake=#ff7b39&color_dots=#e3f5d6,#ffd1e6,#ffa6cc,#ff76b0,#f0428a",
+  "snake_background": {"fill": "#f4fbff", "stroke": "#ffc6de", "rx": 16},
+  "contrib3d": {
+    "type": "normal", "growingAnimation": true, "backgroundColor": "#f4fbff", "foregroundColor": "#4a2040",
+    "strongColor": "#ff4f9a", "weakColor": "#8e5a7c", "radarColor": "#ff4f9a",
+    "contribColors": ["#dcf2cc", "#ffd1e6", "#ffa6cc", "#ff76b0", "#f0428a"]
+  },
+  "views_theme": "moebooru"
+}
