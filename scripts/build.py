@@ -65,8 +65,9 @@ def main() -> int:
     write("divider.svg", style.divider(ctx))
     write("footer.svg", style.footer(cfg["footer"], ctx))
 
-    print("💬 Цитата дня")
-    write("quote.svg", style.quote(quotes, ctx))
+    pinned = (cfg.get("quote") or {}).get("text")
+    print("💬 Цитата" + (" (закреплённая)" if pinned else " дня"))
+    write("quote.svg", style.quote([cfg["quote"]] if pinned else quotes, ctx, pinned=bool(pinned)))
 
     print("⚔️  Окно статуса")
     try:

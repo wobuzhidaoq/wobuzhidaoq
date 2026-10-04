@@ -72,6 +72,7 @@ GitHub показывает README на странице профиля, **то�
 | `exclude_languages` | языки GitHub, которые не показывать в окне статуса, если стек в `skills` не задан, например `["Python"]` |
 | `anime_list.*` | карточка «Сейчас смотрю» (см. шаг 5) |
 | `footer.title`, `footer.subtitle` | надписи в подвале |
+| `quote` | закреплённая цитата-девиз: `text` и по желанию `who` (автор) и `anime`. Оставь `text` пустым — и каждый день будет новая цитата из `data/quotes.json` |
 | `style` | стиль профиля: `"manga"` или `"sakura-day"` (подробнее — [STYLES.md](STYLES.md)) |
 | `typing_lines` | строки печатающегося текста под шапкой |
 | `skills` | твой стек: группы навыков с уровнем (`level`), силой полоски 0–100 (`power`) и списком (`items`, названия как на https://skillicons.dev: `ts`, `react`, `tailwind`, `rust`, `cpp`, а ещё `shadcn`). Показываются в «Арсенале» и в окне статуса |

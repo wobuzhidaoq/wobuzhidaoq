@@ -4,7 +4,6 @@
   "badges": {
     "followers": {"color": "ffffff", "labelColor": "111111"},
     "power": {"color": "ffffff", "labelColor": "111111"},
-    "anime": {"color": "ffffff", "labelColor": "111111"},
     "social": ["111111"]
   },
   "skills": {"type": "badges", "colors": ["111111", "6b6b6b"]},

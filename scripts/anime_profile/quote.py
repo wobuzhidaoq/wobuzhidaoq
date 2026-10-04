@@ -1,4 +1,7 @@
-"""Карточка «Цитата дня»: пруд с карпами кои, а цитата — на бумажке, плавающей по воде."""
+"""Карточка цитаты: пруд с карпами кои, а цитата — на бумажке, плавающей по воде.
+
+Если в config/profile.json задана "quote" — показывается она (девиз), иначе каждый день новая из data/quotes.json.
+"""
 
 import datetime as dt
 import random
@@ -7,7 +10,7 @@ from . import art
 from . import theme as t
 from .fonts import FontEmbedder
 from .scenery import CARD_DEFS
-from .svg import PETAL_GRADIENT, document, esc, flower, wrap
+from .svg import PETAL_GRADIENT, balanced_wrap, document, esc, flower
 
 
 def pick(quotes: list[dict], day: dt.date) -> tuple[int, dict]:
@@ -18,10 +21,21 @@ def pick(quotes: list[dict], day: dt.date) -> tuple[int, dict]:
     return order[pos], quotes[order[pos]]
 
 
-def build(quotes: list[dict], fonts: FontEmbedder, day: dt.date | None = None) -> str:
+PINNED_CAPTION = "座右の銘 · мой девиз"
+
+
+def attribution(q: dict) -> str:
+    """«— Персонаж · «Аниме»», «— Автор» или пусто, если автор не указан."""
+    who, anime = q.get("who", ""), q.get("anime", "")
+    if not who:
+        return ""
+    return f"— {who} · «{anime}»" if anime else f"— {who}"
+
+
+def build(quotes: list[dict], fonts: FontEmbedder, day: dt.date | None = None, pinned: bool = False) -> str:
     day = day or dt.datetime.now(dt.timezone.utc).date()
     _, q = pick(quotes, day)
-    lines = wrap(q["text"], 50, 4)
+    lines = balanced_wrap(q["text"], 50, 4)
     line_h = 32
     w = 900
     px, py, pw = 96, 30, 708
@@ -30,9 +44,9 @@ def build(quotes: list[dict], fonts: FontEmbedder, day: dt.date | None = None) -
     cy = h / 2
     rng = random.Random(day.toordinal())
 
-    caption = f"Цитата дня · {day:%d.%m.%Y}"
-    author = f"— {q['who']} · «{q['anime']}»"
-    vertical = "今日の名言"
+    caption = PINNED_CAPTION if pinned else f"Цитата дня · {day:%d.%m.%Y}"
+    author = attribution(q)
+    vertical = "座右の銘" if pinned else "今日の名言"
 
     text_lines = "".join(
         f'<text x="{px + 56}" y="{py + 84 + i * line_h}" font-size="22" font-weight="800" fill="{t.INK}">'
@@ -95,4 +109,4 @@ def build(quotes: list[dict], fonts: FontEmbedder, day: dt.date | None = None) -
 """
     all_text = caption + author + vertical + "「" + "".join(lines)
     font_css = fonts.css(all_text, (800,))
-    return document(w, h, f"Цитата дня: {q['text']} {author}", defs, css, body, font_css)
+    return document(w, h, f"{q['text']} {author}".strip(), defs, css, body, font_css)

@@ -82,8 +82,6 @@ def badges(cfg: dict, style: dict) -> str:
     items = [
         followers,
         _shield("Уровень силы", "больше 9000!", b["power"]["color"], b["power"]["labelColor"]),
-        _shield("Аниме-статус", "смотрю ещё одну серию", b["anime"]["color"], b["anime"]["labelColor"],
-                "crunchyroll"),
     ]
     colors = b["social"]
     for i, social in enumerate(s for s in cfg.get("socials", []) if s.get("url")):

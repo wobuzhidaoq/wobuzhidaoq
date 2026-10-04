@@ -34,6 +34,16 @@ def wrap(text: str, max_chars: int, max_lines: int) -> list[str]:
     return [line if len(line) <= max_chars else line[: max_chars - 1] + "…" for line in lines]
 
 
+def balanced_wrap(text: str, max_chars: int, max_lines: int) -> list[str]:
+    """Как wrap, но строки примерно одной длины — без одинокого слова в конце."""
+    count = len(wrap(text, max_chars, max_lines))
+    for width in range(-(-len(text) // count), max_chars + 1):
+        lines = wrap(text, width, max_lines)
+        if len(lines) <= count and not lines[-1].endswith("…"):
+            return lines
+    return wrap(text, max_chars, max_lines)
+
+
 def truncate(text: str, max_chars: int) -> str:
     return text if len(text) <= max_chars else text[: max_chars - 1].rstrip() + "…"
 
