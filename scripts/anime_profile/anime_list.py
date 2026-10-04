@@ -72,8 +72,8 @@ def _anilist(username: str, title_lang: str) -> dict:
         "service": "AniList",
         "url": user["siteUrl"],
         "items": items,
-        "summary": (f"Всего аниме: {stats['count']} · эпизодов: {stats['episodesWatched']} · "
-                    f"дней: {stats['minutesWatched'] / 1440:.1f} · ср. оценка: {stats['meanScore']:g}"),
+        "summary": (f"Anime: {stats['count']} · episodes: {stats['episodesWatched']} · "
+                    f"days: {stats['minutesWatched'] / 1440:.1f} · mean score: {stats['meanScore']:g}"),
     }
 
 
@@ -97,7 +97,7 @@ def _shikimori(username: str, domain: str) -> dict:
         "service": "Shikimori",
         "url": f"{domain}/{nick}",
         "items": items,
-        "summary": f"Смотрю сейчас: {len(items)} тайтл(ов)",
+        "summary": f"Watching now: {len(items)} title(s)",
     }
 
 
@@ -127,9 +127,9 @@ def build(data: dict, username: str, fonts: FontEmbedder, max_items: int = 5,
           embed_covers: bool = True) -> str:
     w = 900
     items = data["items"][:max_items]
-    header = "視聴中 · Сейчас смотрю"
+    header = "視聴中 · Now watching"
     service = f"{data['service']} · {username}"
-    texts = [header, service, data["summary"], "эп. 0123456789/?…"]
+    texts = [header, service, data["summary"], "ep. 0123456789/?…"]
 
     parts = [
         f'<rect x="34" y="37" width="10" height="10" fill="{t.SKY}" transform="rotate(45 39 42)"/>',
@@ -142,7 +142,7 @@ def build(data: dict, username: str, fonts: FontEmbedder, max_items: int = 5,
 
     if not items:
         h = 210
-        msg = "Сейчас ничего не смотрю… выбираю следующий тайтл (´・ω・`)"
+        msg = "Nothing on my list right now… picking the next one (´・ω・`)"
         texts.append(msg)
         parts.append(f'<text x="450" y="136" font-size="16" font-weight="800" fill="{t.INK}" '
                      f'text-anchor="middle">{esc(msg)}</text>')
@@ -176,7 +176,7 @@ def build(data: dict, username: str, fonts: FontEmbedder, max_items: int = 5,
             if ratio > 0:
                 parts.append(f'<rect class="grow" x="{ix:.1f}" y="{by}" width="{max(iw * ratio, 4):.1f}" height="6" '
                              f'rx="3" fill="url(#gBar)"/>')
-            label = f"эп. {item['progress']} / {total or '?'}"
+            label = f"ep. {item['progress']} / {total or '?'}"
             parts.append(f'<text x="{cx:.1f}" y="{by + 24}" font-size="12" font-weight="500" fill="{t.INK_SOFT}" '
                          f'text-anchor="middle">{esc(label)}</text>')
             parts.append("</g>")
@@ -198,4 +198,4 @@ def build(data: dict, username: str, fonts: FontEmbedder, max_items: int = 5,
     body = (meadow_card(random.Random(len(items)), w, h) + glass(20, 20, 860, h - 64)
             + "\n" + "\n".join(parts))
     font_css = fonts.css("".join(texts), (500, 800))
-    return document(w, h, f"Сейчас смотрю ({data['service']})", defs, css, body, font_css)
+    return document(w, h, f"Now watching ({data['service']})", defs, css, body, font_css)
