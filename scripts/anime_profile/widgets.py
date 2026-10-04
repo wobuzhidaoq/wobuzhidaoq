@@ -119,7 +119,7 @@ def skills(cfg: dict, style: dict) -> str:
 def views(cfg: dict, style: dict) -> str:
     login = cfg.get("github_username", "")
     params = urlencode({"name": login, "theme": style["views_theme"], "padding": 7, "offset": 0, "align": "top",
-                        "scale": 1, "pixelated": 1, "darkmode": "auto"})
+                        "scale": 1, "pixelated": 1, "darkmode": 0})  # 0 — не приглушать в тёмной теме
     credits = "".join(f"\n  <br/><sub>🎨 {c}</sub>" for c in cfg.get("credits", []))
     return (f'<p align="center">\n  <img src="https://count.getloli.com/@{login}?{params}" '
             f'alt="Счётчик просмотров профиля"/>{credits}\n</p>')

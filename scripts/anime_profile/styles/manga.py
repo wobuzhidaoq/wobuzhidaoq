@@ -236,7 +236,9 @@ def header(cfg: dict, ctx) -> str:
 def divider(ctx) -> str:
     w, h = 900, 44
     body = (
-        f'<path class="draw" d="M40,22 C260,15 640,15 860,22 C640,28 260,29 40,22 Z" fill="{INK}"/>'
+        # белая «бумажная» обводка — чтобы мазок туши был виден и в тёмной теме GitHub
+        f'<path class="draw" d="M40,22 C260,15 640,15 860,22 C640,28 260,29 40,22 Z" fill="{INK}" '
+        f'stroke="#fff" stroke-width="3" stroke-linejoin="round" paint-order="stroke"/>'
         f'<circle cx="450" cy="22" r="14" fill="#fff" stroke="{INK}" stroke-width="2.5"/>'
         f'<g transform="translate(450,22) scale(1.05)"><path class="spin" d="{SPARKLE_PATH}" fill="{INK}"/></g>'
         f'<circle cx="372" cy="22" r="3" fill="#fff" stroke="{INK}" stroke-width="2"/>'
@@ -374,7 +376,8 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
 
     p.append(T.t(316, 554, "装備 · Снаряжение", 12))
     equipment = " · ".join(cfg.get("equipment", [])) or "Пока только палка и крышка от кастрюли"
-    p.append(T.b(316, 576, truncate(equipment, 50), 12))
+    for i, line in enumerate(wrap(equipment, 56, 2)):
+        p.append(T.b(316, 571 + i * 14, line, 11.5))
     weekly = derived["weekly"] or [0]
     p.append(T.t(874, 554, f"Журнал · {len(weekly)} нед." if derived["weekly"] else "Журнал", 11, INK, "end"))
     peak = max(weekly) or 1
