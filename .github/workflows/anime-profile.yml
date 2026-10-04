@@ -1,0 +1,94 @@
+name: 🌸 Обновить аниме-профиль
+
+on:
+  schedule:
+    - cron: "17 */6 * * *" # каждые 6 часов
+  workflow_dispatch: # кнопка «Run workflow» во вкладке Actions
+  push:
+    paths-ignore:
+      - "assets/generated/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: anime-profile
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: 📊 Карточка статистики
+        uses: stats-organization/github-readme-stats-action@v2
+        continue-on-error: true
+        with:
+          card: stats
+          path: assets/generated/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          options: >-
+            {"username": "${{ github.repository_owner }}", "show_icons": true, "locale": "ru",
+             "custom_title": "Статистика GitHub · 統計", "hide_border": true, "border_radius": 16,
+             "bg_color": "30,120d2b,2a1747", "title_color": "ff8fc7", "text_color": "f4ecff",
+             "icon_color": "b9a6ff", "ring_color": "ff8fc7", "rank_icon": "github"}
+
+      - name: 🈳 Карточка языков
+        uses: stats-organization/github-readme-stats-action@v2
+        continue-on-error: true
+        with:
+          card: top-langs
+          path: assets/generated/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          options: >-
+            {"username": "${{ github.repository_owner }}", "layout": "compact", "langs_count": 8,
+             "locale": "ru", "custom_title": "Любимые языки · 言語", "hide_border": true,
+             "border_radius": 16, "bg_color": "30,120d2b,2a1747", "title_color": "ff8fc7",
+             "text_color": "f4ecff"}
+
+      - name: 🐍 Змейка из графика вкладов
+        uses: Platane/snk/svg-only@v3
+        continue-on-error: true
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/generated/snake.svg?color_snake=#7de3ff&color_dots=#1f1640,#4c2a85,#8e44c9,#d16fe0,#ff9ed2
+
+      - name: 🗻 3D-календарь в цветах сакуры
+        uses: yoshi389111/github-profile-3d-contrib@latest
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+          SETTING_JSON: config/3d-sakura.json
+
+      - name: 📦 Перенести 3D-картинку
+        if: ${{ !cancelled() }}
+        run: |
+          if [ -f profile-3d-contrib/profile-sakura.svg ]; then
+            mkdir -p assets/generated
+            mv profile-3d-contrib/profile-sakura.svg assets/generated/3d-sakura.svg
+          fi
+          rm -rf profile-3d-contrib
+
+      - name: ✨ Баннер, окно статуса, цитата дня, список аниме
+        if: ${{ !cancelled() }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build.py
+
+      - name: 💾 Сохранить изменения
+        if: ${{ !cancelled() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/generated README.md
+          if git diff --cached --quiet; then
+            echo "Ничего не изменилось 💤"
+            exit 0
+          fi
+          git commit -m "🌸 Обновление аниме-профиля"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

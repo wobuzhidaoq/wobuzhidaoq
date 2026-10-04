@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="44" viewBox="0 0 900 44" role="img" aria-label="sakura divider">
+<title>sakura divider</title>
+<defs>
+<linearGradient id="line" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="860" y2="0">
+  <stop offset="0" stop-color="#ff8fc7" stop-opacity="0"/><stop offset=".3" stop-color="#ff8fc7"/>
+  <stop offset=".7" stop-color="#b9a6ff"/><stop offset="1" stop-color="#b9a6ff" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="petal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe3f1"/><stop offset="1" stop-color="#ff8fc7"/></linearGradient>
+</defs>
+<style>
+text { font-family: 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', 'Yu Gothic UI', 'Noto Sans JP', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
+
+.tw { fill: #fff6ff; animation: tw ease-in-out infinite; }
+@keyframes tw { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+
+.rot { animation: rot 14s linear infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes rot { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }</style>
+
+<path d="M40,22 H418 M482,22 H860" stroke="url(#line)" stroke-width="1.6" stroke-linecap="round"/>
+<g class="rot"><g transform="translate(450.0,22.0) rotate(0) scale(0.95)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g></g>
+<g transform="translate(300.0,22.0) rotate(20) scale(0.42)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g><g transform="translate(600.0,22.0) rotate(50) scale(0.42)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g>
+<g transform="translate(375,22) scale(0.55)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffd1e8" style="animation-duration:3.0s;animation-delay:-2.2s"/></g><g transform="translate(525,22) scale(0.55)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffd1e8" style="animation-duration:3.2s;animation-delay:-2.4s"/></g><g transform="translate(180,22) scale(0.4)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffd1e8" style="animation-duration:3.8s;animation-delay:-0.3s"/></g><g transform="translate(720,22) scale(0.4)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffd1e8" style="animation-duration:2.5s;animation-delay:-3.3s"/></g>
+
+</svg>

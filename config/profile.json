@@ -1,0 +1,36 @@
+{
+  "github_username": "wobuzhidaoq",
+
+  "header": {
+    "greeting": "こんにちは、旅人さん！",
+    "title": "wobuzhidao",
+    "subtitle": "разработчик · анимешник · охотник за багами"
+  },
+
+  "status_window": {
+    "race": "Человек (наверное)",
+    "class": "",
+    "title": "",
+    "equipment": [
+      "Клавиатура +3",
+      "Кружка кофе (легендарная)",
+      "Наушники с опенингами",
+      "Плед уюта"
+    ]
+  },
+
+  "exclude_languages": [],
+
+  "anime_list": {
+    "service": "anilist",
+    "username": "",
+    "title_language": "english",
+    "shikimori_domain": "https://shikimori.one",
+    "max_items": 5
+  },
+
+  "footer": {
+    "title": "またね～！",
+    "subtitle": "Спасибо, что заглянул, путник ☆ Заходи ещё!"
+  }
+}

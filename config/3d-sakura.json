@@ -1,0 +1,11 @@
+{
+  "type": "normal",
+  "fileName": "profile-sakura.svg",
+  "growingAnimation": true,
+  "backgroundColor": "#120d2b",
+  "foregroundColor": "#f4ecff",
+  "strongColor": "#ff8fc7",
+  "weakColor": "#a99bc9",
+  "radarColor": "#ff8fc7",
+  "contribColors": ["#2a1d4d", "#5b2f8f", "#9b4fcf", "#e06fc9", "#ffb3dc"]
+}
