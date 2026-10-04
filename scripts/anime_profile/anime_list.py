@@ -6,9 +6,13 @@ import sys
 import urllib.parse
 import urllib.request
 
+import random
+
+from . import art
 from . import theme as t
 from .fonts import FontEmbedder
-from .svg import PETAL_GRADIENT, document, esc, flower, wrap
+from .scenery import CARD_DEFS, glass, meadow_card
+from .svg import PETAL_GRADIENT, document, esc, flower, petal_css, wrap
 
 _UA = "anime-profile-readme (github profile generator)"
 
@@ -128,22 +132,22 @@ def build(data: dict, username: str, fonts: FontEmbedder, max_items: int = 5,
     texts = [header, service, data["summary"], "эп. 0123456789/?…"]
 
     parts = [
-        f'<rect x="34" y="37" width="10" height="10" fill="{t.CYAN}" transform="rotate(45 39 42)"/>',
-        f'<text x="54" y="48" font-size="15" font-weight="800" fill="{t.PINK}" letter-spacing="2">{esc(header)}</text>',
-        f'<text x="864" y="48" font-size="12" font-weight="700" fill="{t.CYAN}" text-anchor="end">{esc(service)}</text>',
-        f'<text x="54" y="74" font-size="13" font-weight="500" fill="{t.MUTED}">{esc(data["summary"])}</text>',
-        '<rect x="36" y="88" width="828" height="1.5" fill="url(#hline)"/>',
+        f'<rect x="34" y="37" width="10" height="10" fill="{t.SKY}" transform="rotate(45 39 42)"/>',
+        f'<text x="54" y="48" font-size="15" font-weight="800" fill="{t.ACCENT}" letter-spacing="2">{esc(header)}</text>',
+        f'<text x="864" y="48" font-size="12" font-weight="800" fill="{t.ACCENT_2}" text-anchor="end">{esc(service)}</text>',
+        f'<text x="54" y="74" font-size="13" font-weight="500" fill="{t.INK_SOFT}">{esc(data["summary"])}</text>',
+        '<rect x="36" y="88" width="828" height="2" rx="1" fill="url(#hline)"/>',
     ]
     clips = []
 
     if not items:
-        h = 180
+        h = 210
         msg = "Сейчас ничего не смотрю… выбираю следующий тайтл (´・ω・`)"
         texts.append(msg)
-        parts.append(f'<text x="450" y="136" font-size="16" font-weight="500" fill="{t.TEXT}" '
+        parts.append(f'<text x="450" y="136" font-size="16" font-weight="800" fill="{t.INK}" '
                      f'text-anchor="middle">{esc(msg)}</text>')
     else:
-        h = 400
+        h = 430
         col_w, gap = 164, 10
         x0 = (w - (len(items) * col_w + (len(items) - 1) * gap)) / 2
         for i, item in enumerate(items):
@@ -156,49 +160,42 @@ def build(data: dict, username: str, fonts: FontEmbedder, max_items: int = 5,
                 parts.append(f'<image href="{uri}" x="{ix:.1f}" y="{iy}" width="{iw}" height="{ih}" '
                              f'preserveAspectRatio="xMidYMid slice" clip-path="url(#c{i})"/>')
             else:
-                parts.append(f'<rect x="{ix:.1f}" y="{iy}" width="{iw}" height="{ih}" rx="12" fill="url(#ph)"/>')
+                parts.append(f'<rect x="{ix:.1f}" y="{iy}" width="{iw}" height="{ih}" rx="12" fill="url(#skySoft)"/>')
                 parts.append(flower(cx, iy + ih / 2, 1.6))
             parts.append(f'<rect x="{ix:.1f}" y="{iy}" width="{iw}" height="{ih}" rx="12" fill="none" '
                          f'stroke="url(#border)" stroke-width="1.5"/>')
             title_lines = wrap(item["title"] or "???", 19, 2)
             texts.extend(title_lines)
             for j, line in enumerate(title_lines):
-                parts.append(f'<text x="{cx:.1f}" y="{iy + ih + 24 + j * 18}" font-size="13" font-weight="700" '
-                             f'fill="{t.TEXT}" text-anchor="middle">{esc(line)}</text>')
+                parts.append(f'<text x="{cx:.1f}" y="{iy + ih + 24 + j * 18}" font-size="13" font-weight="800" '
+                             f'fill="{t.INK}" text-anchor="middle">{esc(line)}</text>')
             total = item["total"]
             ratio = min(1.0, item["progress"] / total) if total else 0.0
             by = iy + ih + 66
-            parts.append(f'<rect x="{ix:.1f}" y="{by}" width="{iw}" height="6" rx="3" fill="#ffffff" fill-opacity=".08"/>')
+            parts.append(f'<rect x="{ix:.1f}" y="{by}" width="{iw}" height="6" rx="3" fill="{t.TRACK}"/>')
             if ratio > 0:
                 parts.append(f'<rect class="grow" x="{ix:.1f}" y="{by}" width="{max(iw * ratio, 4):.1f}" height="6" '
                              f'rx="3" fill="url(#gBar)"/>')
             label = f"эп. {item['progress']} / {total or '?'}"
-            parts.append(f'<text x="{cx:.1f}" y="{by + 24}" font-size="12" font-weight="500" fill="{t.MUTED}" '
+            parts.append(f'<text x="{cx:.1f}" y="{by + 24}" font-size="12" font-weight="500" fill="{t.INK_SOFT}" '
                          f'text-anchor="middle">{esc(label)}</text>')
             parts.append("</g>")
 
     defs = f"""
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-  <stop offset="0" stop-color="#1a1140"/><stop offset="1" stop-color="#0d0a24"/></linearGradient>
-<linearGradient id="border" x1="0" y1="0" x2="1" y2="1">
-  <stop offset="0" stop-color="{t.PINK}"/><stop offset="1" stop-color="{t.LAVENDER}"/></linearGradient>
-<linearGradient id="hline" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="{t.PINK}"/><stop offset=".6" stop-color="{t.LAVENDER}"/>
-  <stop offset="1" stop-color="{t.CYAN}" stop-opacity="0"/></linearGradient>
+{art.ART_DEFS}
+{CARD_DEFS}
 <linearGradient id="gBar" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="{t.PINK}"/><stop offset="1" stop-color="{t.CYAN}"/></linearGradient>
-<linearGradient id="ph" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0" stop-color="#3b1a5c"/><stop offset="1" stop-color="#1d1145"/></linearGradient>
+  <stop offset="0" stop-color="{t.PINK}"/><stop offset="1" stop-color="{t.SKY}"/></linearGradient>
 {PETAL_GRADIENT}
 {''.join(clips)}
 """
-    css = """
+    css = art.ART_CSS + petal_css(h + 40, -100) + """
 .rise { animation: rise 1.2s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 .grow { animation: grow 1.6s cubic-bezier(.2,.8,.2,1) .4s both; transform-box: fill-box; transform-origin: left center; }
 @keyframes grow { from { transform: scaleX(0); } }
 """
-    body = (f'<rect x="8" y="8" width="{w - 16}" height="{h - 16}" rx="20" fill="url(#bg)" '
-            f'stroke="url(#border)" stroke-width="1.5"/>\n' + "\n".join(parts))
-    font_css = fonts.css("".join(texts), (500, 700, 800))
+    body = (meadow_card(random.Random(len(items)), w, h) + glass(20, 20, 860, h - 64)
+            + "\n" + "\n".join(parts))
+    font_css = fonts.css("".join(texts), (500, 800))
     return document(w, h, f"Сейчас смотрю ({data['service']})", defs, css, body, font_css)

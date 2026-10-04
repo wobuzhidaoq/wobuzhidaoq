@@ -1,26 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="44" viewBox="0 0 900 44" role="img" aria-label="sakura divider">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="50" viewBox="0 0 900 50" role="img" aria-label="sakura divider">
 <title>sakura divider</title>
 <defs>
 <linearGradient id="line" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="860" y2="0">
   <stop offset="0" stop-color="#ff8fc7" stop-opacity="0"/><stop offset=".3" stop-color="#ff8fc7"/>
-  <stop offset=".7" stop-color="#b9a6ff"/><stop offset="1" stop-color="#b9a6ff" stop-opacity="0"/>
+  <stop offset=".7" stop-color="#5bb8f5"/><stop offset="1" stop-color="#5bb8f5" stop-opacity="0"/>
 </linearGradient>
+
+<linearGradient id="skyDay" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#78c6ff"/><stop offset=".55" stop-color="#bfe7ff"/>
+  <stop offset="1" stop-color="#eef9ff"/></linearGradient>
+<linearGradient id="skySoft" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#cdeeff"/><stop offset="1" stop-color="#f4fbff"/></linearGradient>
+<linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#b8ec88"/><stop offset=".35" stop-color="#7fd062"/>
+  <stop offset="1" stop-color="#4caf50"/></linearGradient>
+<linearGradient id="hillBack" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#cdeeb4"/><stop offset="1" stop-color="#9fd98e"/></linearGradient>
+<linearGradient id="trunk" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#6b3f30"/><stop offset=".5" stop-color="#8d5a43"/>
+  <stop offset="1" stop-color="#5c3427"/></linearGradient>
+<radialGradient id="sunGlow"><stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+  <stop offset=".18" stop-color="#fff8d6" stop-opacity=".8"/>
+  <stop offset=".5" stop-color="#fff3c4" stop-opacity=".25"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="ray" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#ffffff" stop-opacity=".75"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#9fe6f2"/><stop offset=".5" stop-color="#55bde0"/>
+  <stop offset="1" stop-color="#3496c8"/></linearGradient>
+<clipPath id="koiBody"><path d="M34,0 C30,-10 14,-14 0,-12 C-14,-10 -24,-6 -30,0 C-24,6 -14,10 0,12 C14,14 30,10 34,0 Z"/></clipPath>
+<filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+<filter id="shine" x="-200%" y="-200%" width="500%" height="500%">
+  <feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
 <linearGradient id="petal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe3f1"/><stop offset="1" stop-color="#ff8fc7"/></linearGradient>
 </defs>
 <style>
 text { font-family: 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', 'Yu Gothic UI', 'Noto Sans JP', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
 
-.tw { fill: #fff6ff; animation: tw ease-in-out infinite; }
-@keyframes tw { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+.tw { animation: tw ease-in-out infinite; }
+@keyframes tw { 0%, 100% { opacity: .2; } 50% { opacity: 1; } }
+.drift { animation: drift ease-in-out infinite alternate; }
+@keyframes drift { from { transform: translateX(-30px); } to { transform: translateX(30px); } }
+.rays { animation: rays 9s ease-in-out infinite alternate; transform-box: view-box; }
+@keyframes rays { from { opacity: .55; } to { opacity: 1; } }
+.treeSway { animation: treeSway 6s ease-in-out infinite alternate; transform-box: view-box; }
+@keyframes treeSway { from { transform: rotate(-.6deg); } to { transform: rotate(.6deg); } }
+.blink { animation: blink 4.5s infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+.flap { animation: flap .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+@keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(.25); } }
+.ripple { animation: ripple 4s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes ripple { from { transform: scale(.2); opacity: .7; } to { transform: scale(1.6); opacity: 0; } }
+.float { animation: float 7s ease-in-out infinite alternate; }
+@keyframes float { from { transform: translate(-6px, -3px) rotate(-8deg); } to { transform: translate(6px, 3px) rotate(8deg); } }
+.zzz { animation: zzz 3.5s ease-out infinite; }
+@keyframes zzz { from { transform: translate(0, 0); opacity: 0; } 20% { opacity: 1; } to { transform: translate(14px, -26px); opacity: 0; } }
 
 .rot { animation: rot 14s linear infinite; transform-box: fill-box; transform-origin: center; }
 @keyframes rot { to { transform: rotate(360deg); } }
 
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }</style>
 
-<path d="M40,22 H418 M482,22 H860" stroke="url(#line)" stroke-width="1.6" stroke-linecap="round"/>
-<g class="rot"><g transform="translate(450.0,22.0) rotate(0) scale(0.95)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g></g>
-<g transform="translate(300.0,22.0) rotate(20) scale(0.42)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g><g transform="translate(600.0,22.0) rotate(50) scale(0.42)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g>
-<g transform="translate(375,22) scale(0.55)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffd1e8" style="animation-duration:3.0s;animation-delay:-2.2s"/></g><g transform="translate(525,22) scale(0.55)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffd1e8" style="animation-duration:3.2s;animation-delay:-2.4s"/></g><g transform="translate(180,22) scale(0.4)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffd1e8" style="animation-duration:3.8s;animation-delay:-0.3s"/></g><g transform="translate(720,22) scale(0.4)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffd1e8" style="animation-duration:2.5s;animation-delay:-3.3s"/></g>
+<path d="M40,25 H418 M482,25 H860" stroke="url(#line)" stroke-width="2" stroke-linecap="round"/>
+
+<g><animateMotion dur="22s" begin="-0.0s" repeatCount="indefinite" rotate="auto" path="M120,25 C300,14 600,36 780,25 C600,40 300,10 120,25 Z"/>
+  <g transform="scale(0.42)">
+    <path d="M34,0 C30,-10 14,-14 0,-12 C-14,-10 -24,-6 -30,0 C-24,6 -14,10 0,12 C14,14 30,10 34,0 Z" transform="translate(5,7)" fill="#1d5f86" opacity=".18"/>
+    <g><animateTransform attributeName="transform" type="rotate" values="-16 -28 0; 16 -28 0; -16 -28 0"
+         dur="1s" repeatCount="indefinite"/>
+      <path d="M-28,0 C-38,-4 -46,-14 -54,-17 C-48,-6 -48,6 -54,17 C-46,14 -38,4 -28,0 Z" fill="#fffaf5" opacity=".9"/>
+    </g>
+    <path d="M14,-10 C10,-22 0,-25 -4,-22 C0,-17 7,-13 14,-10 Z" fill="#ffffff" opacity=".7"/>
+    <path d="M14,-10 C10,-22 0,-25 -4,-22 C0,-17 7,-13 14,-10 Z" transform="scale(1,-1)" fill="#ffffff" opacity=".7"/>
+    <path d="M34,0 C30,-10 14,-14 0,-12 C-14,-10 -24,-6 -30,0 C-24,6 -14,10 0,12 C14,14 30,10 34,0 Z" fill="#fffaf5"/>
+    <g clip-path="url(#koiBody)"><ellipse cx="18" cy="-1" rx="13" ry="9" fill="#ff5a36"/><ellipse cx="-10" cy="3" rx="11" ry="7" fill="#ff5a36"/></g>
+    <circle cx="28" cy="-5" r="1.6" fill="#1b1b1b"/><circle cx="28" cy="5" r="1.6" fill="#1b1b1b"/>
+  </g>
+</g>
+<g class="rot"><g transform="translate(450.0,25.0) rotate(0) scale(1.00)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g></g>
+<g transform="translate(300.0,25.0) rotate(20) scale(0.45)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g><g transform="translate(600.0,25.0) rotate(50) scale(0.45)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g>
+<g transform="translate(375,25) scale(0.55)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffb000" filter="url(#shine)" style="animation-duration:2.7s;animation-delay:-2.2s"/></g><g transform="translate(525,25) scale(0.55)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffb000" filter="url(#shine)" style="animation-duration:3.1s;animation-delay:-2.4s"/></g><g transform="translate(180,25) scale(0.45)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffb000" filter="url(#shine)" style="animation-duration:3.6s;animation-delay:-0.3s"/></g><g transform="translate(720,25) scale(0.45)"><path class="tw" d="M0,-8 C1,-2 2,-1 8,0 C2,1 1,2 0,8 C-1,2 -2,1 -8,0 C-2,-1 -1,-2 0,-8 Z" fill="#ffb000" filter="url(#shine)" style="animation-duration:2.2s;animation-delay:-3.3s"/></g>
 
 </svg>

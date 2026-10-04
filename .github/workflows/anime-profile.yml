@@ -5,6 +5,7 @@ on:
     - cron: "17 */6 * * *" # каждые 6 часов
   workflow_dispatch: # кнопка «Run workflow» во вкладке Actions
   push:
+    branches: [main]
     paths-ignore:
       - "assets/generated/**"
 
@@ -31,9 +32,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           options: >-
             {"username": "${{ github.repository_owner }}", "show_icons": true, "locale": "ru",
-             "custom_title": "Статистика GitHub · 統計", "hide_border": true, "border_radius": 16,
-             "bg_color": "30,120d2b,2a1747", "title_color": "ff8fc7", "text_color": "f4ecff",
-             "icon_color": "b9a6ff", "ring_color": "ff8fc7", "rank_icon": "github"}
+             "custom_title": "Статистика GitHub · 統計", "border_color": "ffc6de", "border_radius": 16,
+             "bg_color": "30,fff7fb,e6f5ff", "title_color": "ff4f9a", "text_color": "4a2040",
+             "icon_color": "2a86cf", "ring_color": "ff4f9a", "rank_icon": "github"}
 
       - name: 🈳 Карточка языков
         uses: stats-organization/github-readme-stats-action@v2
@@ -44,9 +45,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           options: >-
             {"username": "${{ github.repository_owner }}", "layout": "compact", "langs_count": 8,
-             "locale": "ru", "custom_title": "Любимые языки · 言語", "hide_border": true,
-             "border_radius": 16, "bg_color": "30,120d2b,2a1747", "title_color": "ff8fc7",
-             "text_color": "f4ecff"}
+             "locale": "ru", "custom_title": "Любимые языки · 言語", "border_color": "ffc6de",
+             "border_radius": 16, "bg_color": "30,fff7fb,e6f5ff", "title_color": "ff4f9a",
+             "text_color": "4a2040"}
 
       - name: 🐍 Змейка из графика вкладов
         uses: Platane/snk/svg-only@v3
@@ -54,7 +55,7 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            assets/generated/snake.svg?color_snake=#7de3ff&color_dots=#1f1640,#4c2a85,#8e44c9,#d16fe0,#ff9ed2
+            assets/generated/snake.svg?color_snake=#ff7b39&color_dots=#e3f5d6,#ffd1e6,#ffa6cc,#ff76b0,#f0428a
 
       - name: 🗻 3D-календарь в цветах сакуры
         uses: yoshi389111/github-profile-3d-contrib@latest

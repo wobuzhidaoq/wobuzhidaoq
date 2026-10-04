@@ -37,7 +37,7 @@ def replace_block(text: str, marker: str, content: str) -> str:
 
 
 def add_snake_background(path: Path) -> None:
-    """У змейки прозрачный фон — подкладываем ночную карточку, чтобы она смотрелась в любой теме GitHub."""
+    """У змейки прозрачный фон — подкладываем светлую карточку, чтобы она смотрелась в любой теме GitHub."""
     if not path.exists():
         return
     svg = path.read_text(encoding="utf-8")
@@ -47,7 +47,8 @@ def add_snake_background(path: Path) -> None:
     if not m:
         return
     x, y, w, h = (float(v) for v in m.groups())
-    rect = (f'<rect id="sakura-bg" x="{x}" y="{y}" width="{w}" height="{h}" rx="16" fill="#120d2b"/>')
+    rect = (f'<rect id="sakura-bg" x="{x + 1}" y="{y + 1}" width="{w - 2}" height="{h - 2}" rx="16" '
+            f'fill="#f4fbff" stroke="#ffc6de" stroke-width="2"/>')
     svg = re.sub(r"(<svg\b[^>]*>)", lambda mm: mm.group(1) + rect, svg, count=1)
     path.write_text(svg, encoding="utf-8")
     print("  ✿ snake.svg — добавлен фон")
