@@ -8,12 +8,12 @@
         role="img"
         aria-labelledby="descId"
       >
-        <title id="titleId">&#1057;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1072; GitHub &#183; &#32113;&#35336;, Rank: C</title>
+        <title id="titleId">&#1057;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1072; &#183; &#32113;&#35336;, Rank: C</title>
         <desc id="descId">&#1042;&#1089;&#1077;&#1075;&#1086; &#1079;&#1074;&#1105;&#1079;&#1076;: 0, &#1042;&#1089;&#1077;&#1075;&#1086; &#1082;&#1086;&#1084;&#1084;&#1080;&#1090;&#1086;&#1074;  (&#1047;&#1072; &#1087;&#1088;&#1086;&#1096;&#1083;&#1099;&#1081; &#1075;&#1086;&#1076;) : 6, &#1042;&#1089;&#1077;&#1075;&#1086; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1086;&#1074; &#1080;&#1079;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1081;: 4, &#1042;&#1089;&#1077;&#1075;&#1086; &#1074;&#1086;&#1087;&#1088;&#1086;&#1089;&#1086;&#1074;: 0, &#1042;&#1085;&#1077;&#1089;&#1077;&#1085;&#1086; &#1074;&#1082;&#1083;&#1072;&#1076;&#1072; (&#1079;&#1072; &#1087;&#1088;&#1086;&#1096;&#1083;&#1099;&#1081; &#1075;&#1086;&#1076;): 0</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-            fill: #ff4f9a;
+            fill: #111111;
             animation: fadeInAnimation 0.8s ease-in-out forwards;
           }
           @supports(-moz-appearance: auto) {
@@ -22,7 +22,7 @@
           }
           
     .stat {
-      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #4a2040;
+      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #111111;
     }
     @supports(-moz-appearance: auto) {
       /* Selector detects Firefox */
@@ -33,7 +33,7 @@
       animation: fadeInAnimation 0.3s ease-in-out forwards;
     }
     .rank-text {
-      font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4a2040;
+      font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #111111;
       animation: scaleInAnimation 0.3s ease-in-out forwards;
     }
     .rank-percentile-header {
@@ -46,18 +46,18 @@
     .not_bold { font-weight: 400 }
     .bold { font-weight: 700 }
     .icon {
-      fill: #2a86cf;
+      fill: #111111;
       display: block;
     }
 
     .rank-circle-rim {
-      stroke: #ff4f9a;
+      stroke: #111111;
       fill: none;
       stroke-width: 6;
       opacity: 0.2;
     }
     .rank-circle {
-      stroke: #ff4f9a;
+      stroke: #111111;
       stroke-dasharray: 250;
       fill: none;
       stroke-width: 6;
@@ -105,13 +105,6 @@
         
         <defs>
           
-          <linearGradient
-            id="gradient"
-            gradientTransform="rotate(30)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0%" stop-color="#fff7fb" />,<stop offset="100%" stop-color="#e6f5ff" />
-          </linearGradient>
           
         </defs>
         
@@ -121,11 +114,11 @@
           class="card-bg"
           x="0.5"
           y="0.5"
-          rx="16"
+          rx="2"
           height="99%"
-          stroke="#ffc6de"
+          stroke="#111111"
           width="466"
-          fill="url(#gradient)"
+          fill="#ffffff"
           stroke-opacity="1"
         />
 
@@ -140,7 +133,7 @@
         y="0"
         class="header"
         data-testid="header"
-      >&#1057;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1072; GitHub &#183; &#32113;&#35336;</text>
+      >&#1057;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1072; &#183; &#32113;&#35336;</text>
     </g>
       </g>
     
