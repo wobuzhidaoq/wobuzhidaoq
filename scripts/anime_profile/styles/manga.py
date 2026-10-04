@@ -297,9 +297,7 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
     now = now or dt.datetime.now(dt.timezone.utc)
     info = status_window.compute(stats, derived, cfg)
     fmt = status_window._fmt
-    langs = [lang for lang in stats["languages"] if lang["name"] not in (exclude or [])]
-    total = sum(lang["size"] for lang in langs) or 1
-    langs = langs[:5]
+    skills = status_window.skill_rows(stats, cfg, exclude)
     p: list[str] = []
 
     # шапка-плашка
@@ -360,18 +358,17 @@ def status(stats: dict, derived: dict, cfg: dict, ctx, exclude: list | None = No
                      f'width="{max(556 * r, 4):.1f}" height="12" fill="{fill}"/>')
 
     p.append(T.t(316, 394, "スキル · Навыки", 15))
-    if langs:
-        top = langs[0]["size"] / total
-        for i, lang in enumerate(langs):
-            y = 420 + i * 24
-            share = lang["size"] / total
-            fill = _FILLS[i % len(_FILLS)]
+    if skills:
+        step = 24 if len(skills) <= 5 else 21
+        for i, sk in enumerate(skills):
+            y = 420 + i * step
+            fill = _FILLS[sk["group"] % len(_FILLS)]
             p.append(f'<rect x="316" y="{y - 11}" width="12" height="12" fill="{fill}" stroke="{INK}" stroke-width="1.5"/>')
-            p.append(T.b(336, y, truncate(lang["name"], 16), 13))
+            p.append(T.b(336, y, truncate(sk["name"], 16), 13))
             p.append(f'<rect x="470" y="{y - 10}" width="340" height="10" fill="#fff" stroke="{INK}" stroke-width="1.5"/>')
             p.append(f'<rect class="grow" style="animation-delay:{.4 + i * .1:.1f}s" x="471" y="{y - 9}" '
-                     f'width="{max(338 * share / top, 3):.1f}" height="8" fill="{fill}"/>')
-            p.append(T.b(874, y, f"{share * 100:.1f}%", 12, GRAY, "end", 400))
+                     f'width="{max(338 * sk["ratio"], 3):.1f}" height="8" fill="{fill}"/>')
+            p.append(T.b(874, y, sk["label"], 12, GRAY, "end"))
     else:
         p.append(T.b(316, 430, "Навыки ещё не раскрыты… (・_・;)", 14, GRAY))
 

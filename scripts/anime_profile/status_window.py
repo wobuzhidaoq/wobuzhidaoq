@@ -69,7 +69,8 @@ def compute(stats: dict, derived: dict, cfg: dict) -> dict:
     level = 1 + int(math.sqrt(xp / 5))
     floor_xp, next_xp = 5 * (level - 1) ** 2, 5 * level ** 2
     rank = next((r for limit, r in RANKS if level < limit), "SSS")
-    top_lang = s["languages"][0]["name"] if s["languages"] else None
+    declared = cfg.get("skills") or []
+    top_lang = declared[0]["name"] if declared else (s["languages"][0]["name"] if s["languages"] else None)
     return {
         "xp": xp,
         "level": level,
@@ -83,6 +84,19 @@ def compute(stats: dict, derived: dict, cfg: dict) -> dict:
     }
 
 
+def skill_rows(stats: dict, cfg: dict, exclude: list | None = None) -> list[dict]:
+    """Строки «Навыков»: твой стек из config (с уровнями) или, если его нет, языки из GitHub."""
+    declared = cfg.get("skills") or []
+    if declared:
+        return [{"name": d["name"], "color": d["color"], "ratio": d["power"], "label": d["level"],
+                 "group": d["group"]} for d in declared[:6]]
+    langs = [lang for lang in stats["languages"] if lang["name"] not in (exclude or [])][:5]
+    total = sum(lang["size"] for lang in stats["languages"] if lang["name"] not in (exclude or [])) or 1
+    top = langs[0]["size"] / total if langs else 1
+    return [{"name": lang["name"], "color": lang.get("color") or t.LILAC, "ratio": lang["size"] / total / top,
+             "label": f"{lang['size'] / total * 100:.1f}%", "group": i} for i, lang in enumerate(langs)]
+
+
 def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
           exclude_languages: list[str] | None = None, now: dt.datetime | None = None) -> str:
     top = 58  # место над карточкой для котика, который выглядывает сверху
@@ -91,9 +105,7 @@ def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
     now = now or dt.datetime.now(dt.timezone.utc)
     info = compute(stats, derived, cfg)
 
-    langs = [lang for lang in stats["languages"] if lang["name"] not in (exclude_languages or [])]
-    total_size = sum(lang["size"] for lang in langs) or 1
-    langs = langs[:5]
+    skills = skill_rows(stats, cfg, exclude_languages)
 
     texts: list[str] = []  # всё, что попадёт на картинку, — для сабсета шрифта
 
@@ -175,18 +187,17 @@ def build(stats: dict, derived: dict, cfg: dict, fonts: FontEmbedder,
 
     # --- навыки (языки) ---
     parts.append(text(470, 334, "スキル · Навыки", 13, 800, t.ACCENT_2, extra='letter-spacing="2"'))
-    if langs:
-        top_share = langs[0]["size"] / total_size
-        for i, lang in enumerate(langs):
-            y = 358 + i * 22
-            share = lang["size"] / total_size
-            color = lang.get("color") or t.LILAC
+    if skills:
+        step = 22 if len(skills) <= 5 else 19
+        for i, sk in enumerate(skills):
+            y = 358 + i * step
+            color = sk["color"]
             parts.append(f'<circle cx="476" cy="{y - 4}" r="5" fill="{color}" stroke="#ffffff" stroke-width="1"/>')
-            parts.append(text(488, y, truncate(lang["name"], 15), 13, 500, t.INK))
+            parts.append(text(488, y, truncate(sk["name"], 15), 13, 500, t.INK))
             parts.append(f'<rect x="616" y="{y - 8}" width="196" height="6" rx="3" fill="{t.TRACK}"/>')
             parts.append(f'<rect class="grow" style="animation-delay:{0.4 + i * 0.12:.2f}s" x="616" y="{y - 8}" '
-                         f'width="{max(196 * share / top_share, 4):.1f}" height="6" rx="3" fill="{color}"/>')
-            parts.append(text(864, y, f"{share * 100:.1f}%", 12, 500, t.INK_SOFT, "end"))
+                         f'width="{max(196 * sk["ratio"], 4):.1f}" height="6" rx="3" fill="{color}"/>')
+            parts.append(text(864, y, sk["label"], 12, 500, t.INK_SOFT, "end"))
     else:
         parts.append(text(470, 366, "Навыки ещё не раскрыты… (・_・;)", 14, 500, t.INK_SOFT))
 
