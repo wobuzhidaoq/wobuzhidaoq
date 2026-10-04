@@ -3,6 +3,7 @@
   Картинки в assets/generated/ пересобираются сами каждые 6 часов (.github/workflows/anime-profile.yml).
   Тексты баннера, окна статуса и подвала меняются в config/profile.json, цитаты — в data/quotes.json.
   Места, которые стоит заполнить своим, помечены ✏️.
+  Сохранённые стили и как к ним вернуться — docs/STYLES.md.
 -->
 
 <p align="center">
