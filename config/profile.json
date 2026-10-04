@@ -54,6 +54,11 @@
     "footer": "assets/images/manga-smile.jpg"
   },
 
+  "views": {
+    "tab": "訪問者数",
+    "caption": "Столько путников уже заглянуло ко мне!"
+  },
+
   "credits": [],
 
   "exclude_languages": ["Python"],

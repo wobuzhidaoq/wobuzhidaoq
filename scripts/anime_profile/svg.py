@@ -44,6 +44,17 @@ def balanced_wrap(text: str, max_chars: int, max_lines: int) -> list[str]:
     return wrap(text, max_chars, max_lines)
 
 
+def speech_bubble(cx, cy, rx, ry, tx, ty, stroke: str = "#111111", width: float = 3,
+                  fill: str = "#fff", spread: float = 0.17) -> str:
+    """Облачко-реплика: эллипс с хвостиком, указывающим на точку (tx, ty)."""
+    import math
+    a0 = math.atan2((ty - cy) / ry, (tx - cx) / rx)
+    x1, y1 = cx + rx * math.cos(a0 + spread), cy + ry * math.sin(a0 + spread)
+    x2, y2 = cx + rx * math.cos(a0 - spread), cy + ry * math.sin(a0 - spread)
+    return (f'<path d="M{x1:.1f},{y1:.1f} A{rx},{ry} 0 1 1 {x2:.1f},{y2:.1f} L{tx},{ty} Z" fill="{fill}" '
+            f'stroke="{stroke}" stroke-width="{width}" stroke-linejoin="round"/>')
+
+
 def truncate(text: str, max_chars: int) -> str:
     return text if len(text) <= max_chars else text[: max_chars - 1].rstrip() + "…"
 
