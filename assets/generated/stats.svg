@@ -1,22 +1,246 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="467" height="195" viewBox="0 0 467 195" role="img" aria-label="Статистика появится после первого запуска Actions">
-<title>Статистика появится после первого запуска Actions</title>
-<defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-  <stop offset="0" stop-color="#1a1140"/><stop offset="1" stop-color="#0d0a24"/></linearGradient>
-<linearGradient id="petal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe3f1"/><stop offset="1" stop-color="#ff8fc7"/></linearGradient>
-</defs>
-<style>@font-face { font-family: 'M PLUS Rounded 1c'; font-style: normal; font-weight: 500; src: url(data:font/woff2;base64,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) format('woff2'); unicode-range: U+41, U+63, U+69, U+6e-6f, U+73-74, U+421, U+430, U+432-433, U+435, U+437-438, U+43a-43b, U+43e-443, U+44f; }
-text { font-family: 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', 'Yu Gothic UI', 'Noto Sans JP', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
 
-.rot { animation: rot 6s linear infinite; transform-box: fill-box; transform-origin: center; }
-@keyframes rot { to { transform: rotate(360deg); } }
+      <svg
+        width="467"
+        height="195"
+        viewBox="0 0 467 195"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-labelledby="descId"
+      >
+        <title id="titleId">&#1057;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1072; GitHub &#183; &#32113;&#35336;, Rank: C</title>
+        <desc id="descId">&#1042;&#1089;&#1077;&#1075;&#1086; &#1079;&#1074;&#1105;&#1079;&#1076;: 0, &#1042;&#1089;&#1077;&#1075;&#1086; &#1082;&#1086;&#1084;&#1084;&#1080;&#1090;&#1086;&#1074;  (&#1047;&#1072; &#1087;&#1088;&#1086;&#1096;&#1083;&#1099;&#1081; &#1075;&#1086;&#1076;) : 0, &#1042;&#1089;&#1077;&#1075;&#1086; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1086;&#1074; &#1080;&#1079;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1081;: 0, &#1042;&#1089;&#1077;&#1075;&#1086; &#1074;&#1086;&#1087;&#1088;&#1086;&#1089;&#1086;&#1074;: 0, &#1042;&#1085;&#1077;&#1089;&#1077;&#1085;&#1086; &#1074;&#1082;&#1083;&#1072;&#1076;&#1072; (&#1079;&#1072; &#1087;&#1088;&#1086;&#1096;&#1083;&#1099;&#1081; &#1075;&#1086;&#1076;): 0</desc>
+        <style>
+          .header {
+            font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+            fill: #ff8fc7;
+            animation: fadeInAnimation 0.8s ease-in-out forwards;
+          }
+          @supports(-moz-appearance: auto) {
+            /* Selector detects Firefox */
+            .header { font-size: 15.5px; }
+          }
+          
+    .stat {
+      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #f4ecff;
+    }
+    @supports(-moz-appearance: auto) {
+      /* Selector detects Firefox */
+      .stat { font-size:12px; }
+    }
+    .stagger {
+      opacity: 0;
+      animation: fadeInAnimation 0.3s ease-in-out forwards;
+    }
+    .rank-text {
+      font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #f4ecff;
+      animation: scaleInAnimation 0.3s ease-in-out forwards;
+    }
+    .rank-percentile-header {
+      font-size: 14px;
+    }
+    .rank-percentile-text {
+      font-size: 16px;
+    }
+    
+    .not_bold { font-weight: 400 }
+    .bold { font-weight: 700 }
+    .icon {
+      fill: #b9a6ff;
+      display: block;
+    }
 
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }</style>
+    .rank-circle-rim {
+      stroke: #ff8fc7;
+      fill: none;
+      stroke-width: 6;
+      opacity: 0.2;
+    }
+    .rank-circle {
+      stroke: #ff8fc7;
+      stroke-dasharray: 250;
+      fill: none;
+      stroke-width: 6;
+      stroke-linecap: round;
+      opacity: 0.8;
+      transform-origin: -10px 8px;
+      transform: rotate(-90deg);
+      animation: rankAnimation 1s forwards ease-in-out;
+    }
+    
+    @keyframes rankAnimation {
+      from {
+        stroke-dashoffset: 251.32741228718345;
+      }
+      to {
+        stroke-dashoffset: 243.47343065320896;
+      }
+    }
+  
+  
+          
 
-<rect x="1" y="1" width="465" height="193" rx="16" fill="url(#bg)" stroke="#b9a6ff"
-      stroke-opacity=".4" stroke-dasharray="6 6"/>
-<g class="rot"><g transform="translate(233.5,76.0) rotate(0) scale(1.20)"><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(0)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(72)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(144)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(216)" fill="url(#petal)"/><path d="M0,0 C-7,-5 -8,-13 -3,-18 L0,-15 L3,-18 C8,-13 7,-5 0,0 Z" transform="rotate(288)" fill="url(#petal)"/><circle r="3.2" fill="#ffe3f1"/><circle cx="0" cy="-4.5" r="1" fill="#ff5fa2"/><circle cx="4.3" cy="-1.4" r="1" fill="#ff5fa2"/><circle cx="2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-2.6" cy="3.6" r="1" fill="#ff5fa2"/><circle cx="-4.3" cy="-1.4" r="1" fill="#ff5fa2"/></g></g>
-<text x="233.5" y="111" text-anchor="middle" font-size="15" font-weight="500"
-      fill="#a99bc9">Статистика появится после первого запуска Actions</text>
+          
+      /* Animations */
+      @keyframes scaleInAnimation {
+        from {
+          transform: translate(-5px, 5px) scale(0);
+        }
+        to {
+          transform: translate(-5px, 5px) scale(1);
+        }
+      }
+      @keyframes fadeInAnimation {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    
+          
+        </style>
 
-</svg>
+        
+        <defs>
+          
+          <linearGradient
+            id="gradient"
+            gradientTransform="rotate(30)"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0%" stop-color="#120d2b" />,<stop offset="100%" stop-color="#2a1747" />
+          </linearGradient>
+          
+        </defs>
+        
+
+        <rect
+          data-testid="card-bg"
+          class="card-bg"
+          x="0.5"
+          y="0.5"
+          rx="16"
+          height="99%"
+          stroke="#e4e2e2"
+          width="466"
+          fill="url(#gradient)"
+          stroke-opacity="0"
+        />
+
+        
+      <g
+        data-testid="card-title"
+        transform="translate(25, 35)"
+      >
+        <g transform="translate(0, 0)">
+      <text
+        x="0"
+        y="0"
+        class="header"
+        data-testid="header"
+      >&#1057;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1072; GitHub &#183; &#32113;&#35336;</text>
+    </g>
+      </g>
+    
+
+        <g
+          data-testid="main-card-body"
+          transform="translate(0, 55)"
+        >
+          
+    <g data-testid="rank-circle"
+          transform="translate(390.5, 47.5)">
+        <circle class="rank-circle-rim" cx="-10" cy="8" r="40" />
+        <circle class="rank-circle" cx="-10" cy="8" r="40" />
+        <g class="rank-text">
+          
+        <svg x="-38" y="-30" height="66" width="66" aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" data-testid="github-rank-icon">
+          <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+      
+        </g>
+      </g>
+    <svg x="0" y="0">
+      <g transform="translate(0, 0)">
+    <g class="stagger" style="animation-delay: 450ms" transform="translate(25, 0)">
+      
+    <svg data-testid="icon" class="icon" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+      <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"/>
+    </svg>
+  
+      <text class="stat  bold" x="25" y="12.5">&#1042;&#1089;&#1077;&#1075;&#1086; &#1079;&#1074;&#1105;&#1079;&#1076;:</text>
+      <text
+        class="stat  bold"
+        x="274.01"
+        y="12.5"
+        data-testid="stars"
+      >0</text>
+    </g>
+  </g><g transform="translate(0, 25)">
+    <g class="stagger" style="animation-delay: 600ms" transform="translate(25, 0)">
+      
+    <svg data-testid="icon" class="icon" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+      <path fill-rule="evenodd" d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM7.75 4a.75.75 0 01.75.75v2.992l2.028.812a.75.75 0 01-.557 1.392l-2.5-1A.75.75 0 017 8.25v-3.5A.75.75 0 017.75 4z"/>
+    </svg>
+  
+      <text class="stat  bold" x="25" y="12.5">&#1042;&#1089;&#1077;&#1075;&#1086; &#1082;&#1086;&#1084;&#1084;&#1080;&#1090;&#1086;&#1074; (&#1047;&#1072; &#1087;&#1088;&#1086;&#1096;&#1083;&#1099;&#1081; &#1075;&#1086;&#1076;):</text>
+      <text
+        class="stat  bold"
+        x="274.01"
+        y="12.5"
+        data-testid="commits"
+      >0</text>
+    </g>
+  </g><g transform="translate(0, 50)">
+    <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
+      
+    <svg data-testid="icon" class="icon" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+      <path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"/>
+    </svg>
+  
+      <text class="stat  bold" x="25" y="12.5">&#1042;&#1089;&#1077;&#1075;&#1086; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1086;&#1074; &#1080;&#1079;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1081;:</text>
+      <text
+        class="stat  bold"
+        x="274.01"
+        y="12.5"
+        data-testid="prs"
+      >0</text>
+    </g>
+  </g><g transform="translate(0, 75)">
+    <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
+      
+    <svg data-testid="icon" class="icon" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+      <path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"/>
+    </svg>
+  
+      <text class="stat  bold" x="25" y="12.5">&#1042;&#1089;&#1077;&#1075;&#1086; &#1074;&#1086;&#1087;&#1088;&#1086;&#1089;&#1086;&#1074;:</text>
+      <text
+        class="stat  bold"
+        x="274.01"
+        y="12.5"
+        data-testid="issues"
+      >0</text>
+    </g>
+  </g><g transform="translate(0, 100)">
+    <g class="stagger" style="animation-delay: 1050ms" transform="translate(25, 0)">
+      
+    <svg data-testid="icon" class="icon" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+      <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/>
+    </svg>
+  
+      <text class="stat  bold" x="25" y="12.5">&#1042;&#1085;&#1077;&#1089;&#1077;&#1085;&#1086; &#1074;&#1082;&#1083;&#1072;&#1076;&#1072; (&#1079;&#1072; &#1087;&#1088;&#1086;&#1096;&#1083;&#1099;&#1081; &#1075;&#1086;&#1076;):</text>
+      <text
+        class="stat  bold"
+        x="274.01"
+        y="12.5"
+        data-testid="contribs"
+      >0</text>
+    </g>
+  </g>
+    </svg>
+  
+        </g>
+      </svg>
+    
