@@ -30,7 +30,10 @@
     ]
   },
 
-  "skills": ["python", "js", "ts", "html", "css", "react", "nodejs", "git", "github", "vscode", "linux", "docker"],
+  "skills": [
+    {"group": "Основной стек · Middle", "level": "Middle", "power": 80, "items": ["ts", "react", "tailwind", "shadcn"]},
+    {"group": "Изучаю с удовольствием · 勉強中", "level": "учусь", "power": 30, "items": ["rust", "cpp"]}
+  ],
 
   "socials": [
     {"name": "Telegram", "url": "", "logo": "telegram"},
@@ -49,7 +52,7 @@
     "Котик «え?» — Reboot_kitten (小红书)"
   ],
 
-  "exclude_languages": [],
+  "exclude_languages": ["Python"],
 
   "anime_list": {
     "service": "anilist",

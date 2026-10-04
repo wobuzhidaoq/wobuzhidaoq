@@ -44,19 +44,18 @@
 
 <!-- Список навыков — в config/profile.json → skills (названия как на https://skillicons.dev) -->
 <!-- SKILLS:START -->
+<p align="center"><b>Основной стек · Middle</b></p>
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-111111?style=for-the-badge&labelColor=111111&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/JavaScript-111111?style=for-the-badge&labelColor=111111&logo=javascript&logoColor=white" alt="JavaScript"/>
   <img src="https://img.shields.io/badge/TypeScript-111111?style=for-the-badge&labelColor=111111&logo=typescript&logoColor=white" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/HTML-111111?style=for-the-badge&labelColor=111111&logo=html5&logoColor=white" alt="HTML"/>
-  <img src="https://img.shields.io/badge/CSS-111111?style=for-the-badge&labelColor=111111&logo=css&logoColor=white" alt="CSS"/>
   <img src="https://img.shields.io/badge/React-111111?style=for-the-badge&labelColor=111111&logo=react&logoColor=white" alt="React"/>
-  <img src="https://img.shields.io/badge/Node.js-111111?style=for-the-badge&labelColor=111111&logo=nodedotjs&logoColor=white" alt="Node.js"/>
-  <img src="https://img.shields.io/badge/Git-111111?style=for-the-badge&labelColor=111111&logo=git&logoColor=white" alt="Git"/>
-  <img src="https://img.shields.io/badge/GitHub-111111?style=for-the-badge&labelColor=111111&logo=github&logoColor=white" alt="GitHub"/>
-  <img src="https://img.shields.io/badge/VS%20Code-111111?style=for-the-badge&labelColor=111111" alt="VS Code"/>
-  <img src="https://img.shields.io/badge/Linux-111111?style=for-the-badge&labelColor=111111&logo=linux&logoColor=white" alt="Linux"/>
-  <img src="https://img.shields.io/badge/Docker-111111?style=for-the-badge&labelColor=111111&logo=docker&logoColor=white" alt="Docker"/>
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-111111?style=for-the-badge&labelColor=111111&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"/>
+  <img src="https://img.shields.io/badge/shadcn%E2%88%95ui-111111?style=for-the-badge&labelColor=111111&logo=shadcnui&logoColor=white" alt="shadcn/ui"/>
+</p>
+
+<p align="center"><b>Изучаю с удовольствием · 勉強中</b></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Rust-6b6b6b?style=for-the-badge&labelColor=6b6b6b&logo=rust&logoColor=white" alt="Rust"/>
+  <img src="https://img.shields.io/badge/C%2B%2B-6b6b6b?style=for-the-badge&labelColor=6b6b6b&logo=cplusplus&logoColor=white" alt="C++"/>
 </p>
 <!-- SKILLS:END -->
 

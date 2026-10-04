@@ -91,11 +91,14 @@ def make_grayscale(path: Path) -> None:
 
 def actions_env() -> int:
     """Печатает настройки стиля в формате $GITHUB_OUTPUT для шагов workflow."""
-    _, name, style_cfg = load_config()
+    cfg, name, style_cfg = load_config()
     contrib = {**style_cfg["contrib3d"], "fileName": "profile-sakura.svg"}
     contrib_path = Path(os.environ.get("RUNNER_TEMP", "/tmp")) / "3d-style.json"
     contrib_path.write_text(json.dumps(contrib), encoding="utf-8")
     langs = style_cfg.get("langs_options")
+    hidden = [lang.lower() for lang in cfg.get("exclude_languages", [])]
+    if langs and hidden:
+        langs = {**langs, "hide": ",".join(hidden)}
     print(f"style={name}")
     print(f"stats_options={json.dumps(style_cfg['stats_options'], ensure_ascii=False)}")
     print(f"langs_options={json.dumps(langs, ensure_ascii=False) if langs else ''}")
@@ -140,8 +143,8 @@ def main() -> int:
                 raise RuntimeError("нужны GITHUB_TOKEN и github_username (или GITHUB_REPOSITORY_OWNER)")
             stats = github_stats.fetch(login, token)
         derived = github_stats.derive(stats, dt.datetime.now(dt.timezone.utc).date())
-        write("status.svg", style.status(stats, derived, cfg.get("status_window", {}), ctx,
-                                         cfg.get("exclude_languages", [])))
+        status_cfg = {**cfg.get("status_window", {}), "skills": widgets.skill_rows(cfg)}
+        write("status.svg", style.status(stats, derived, status_cfg, ctx, cfg.get("exclude_languages", [])))
     except Exception as exc:
         ok = False
         print(f"  ✗ статистика не обновлена: {exc}", file=sys.stderr)

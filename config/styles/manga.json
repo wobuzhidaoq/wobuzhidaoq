@@ -7,7 +7,7 @@
     "anime": {"color": "ffffff", "labelColor": "111111"},
     "social": ["111111"]
   },
-  "skills": {"type": "badges", "color": "111111"},
+  "skills": {"type": "badges", "colors": ["111111", "6b6b6b"]},
   "stats_options": {
     "show_icons": true, "locale": "ru", "custom_title": "Статистика · 統計",
     "border_color": "111111", "border_radius": 2, "bg_color": "ffffff",
