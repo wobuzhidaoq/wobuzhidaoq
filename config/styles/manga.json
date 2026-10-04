@@ -1,0 +1,36 @@
+{
+  "title": "🖤 Манга (чёрно-белая)",
+  "typing": {"font": "Pangolin", "weight": 400, "color": "111111"},
+  "badges": {
+    "followers": {"color": "ffffff", "labelColor": "111111"},
+    "power": {"color": "ffffff", "labelColor": "111111"},
+    "anime": {"color": "ffffff", "labelColor": "111111"},
+    "social": ["111111"]
+  },
+  "skills": {"type": "badges", "color": "111111"},
+  "stats_options": {
+    "show_icons": true, "locale": "ru", "custom_title": "Статистика · 統計",
+    "border_color": "111111", "border_radius": 2, "bg_color": "ffffff",
+    "title_color": "111111", "text_color": "111111", "icon_color": "111111",
+    "ring_color": "111111", "rank_icon": "github"
+  },
+  "langs_options": null,
+  "streak": {
+    "border": "111111", "border_radius": "2", "background": "FFFFFF", "stroke": "111111",
+    "ring": "111111", "fire": "111111", "currStreakNum": "111111", "sideNums": "111111",
+    "currStreakLabel": "111111", "sideLabels": "444444", "dates": "777777"
+  },
+  "activity": {
+    "bg_color": "ffffff", "color": "111111", "title_color": "111111", "line": "111111", "point": "111111",
+    "area": "true", "area_color": "bdbdbd", "border_color": "111111", "radius": "2"
+  },
+  "snake": "color_snake=#d7263d&color_dots=#f2f2f2,#c9c9c9,#959595,#5c5c5c,#1f1f1f",
+  "snake_background": {"fill": "#ffffff", "stroke": "#111111", "rx": 2},
+  "contrib3d": {
+    "type": "normal", "growingAnimation": true, "backgroundColor": "#ffffff", "foregroundColor": "#111111",
+    "strongColor": "#111111", "weakColor": "#6b6b6b", "radarColor": "#111111",
+    "contribColors": ["#eeeeee", "#c4c4c4", "#8f8f8f", "#555555", "#1a1a1a"]
+  },
+  "views_theme": "sketch-1",
+  "grayscale": ["3d-sakura.svg"]
+}

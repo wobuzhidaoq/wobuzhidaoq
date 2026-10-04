@@ -1,30 +1,30 @@
 <!--
   🌸 Аниме-профиль wobuzhidao
-  Картинки в assets/generated/ пересобираются сами каждые 6 часов (.github/workflows/anime-profile.yml).
-  Тексты баннера, окна статуса и подвала меняются в config/profile.json, цитаты — в data/quotes.json.
-  Места, которые стоит заполнить своим, помечены ✏️.
-  Сохранённые стили и как к ним вернуться — docs/STYLES.md.
+  Стиль выбирается в config/profile.json → "style": "manga" или "sakura-day" (docs/STYLES.md).
+  Картинки в assets/generated/ и блоки между маркерами …:START и …:END пересобираются сами — их не правь руками.
+  Тексты, навыки, соцсети и картинки для стиля манги — в config/profile.json, цитаты — в data/quotes.json.
+  Места, которые стоит заполнить своим прямо здесь, помечены ✏️.
 -->
 
 <p align="center">
   <img src="./assets/generated/header.svg" width="100%" alt="wobuzhidao — разработчик · анимешник · охотник за багами"/>
 </p>
 
+<!-- TYPING:START -->
 <p align="center">
   <a href="https://github.com/wobuzhidaoq">
-    <img src="https://readme-typing-svg.demolab.com?font=M+PLUS+Rounded+1c&weight=700&size=22&duration=3000&pause=1000&color=FF4F9A&center=true&vCenter=true&width=720&height=46&lines=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%EF%BC%81+%D0%AF+wobuzhidao+%28%3D%5E%EF%BD%A5%CF%89%EF%BD%A5%5E%3D%29;%D0%9F%D0%B8%D1%88%D1%83+%D0%BA%D0%BE%D0%B4+%D0%BF%D0%BE%D0%B4+%D0%B0%D0%BD%D0%B8%D0%BC%D0%B5-%D0%BE%D0%BF%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%D0%B8+%E2%99%AA;%D0%9A%D0%B0%D0%B6%D0%B4%D1%8B%D0%B9+%D0%B1%D0%B0%D0%B3+%E2%80%94+%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F+%D0%B0%D1%80%D0%BA%D0%B0+%D1%81%D1%8E%D0%B6%D0%B5%D1%82%D0%B0;%D0%9C%D0%BE%D0%B9+%D0%BA%D0%BE%D0%B4+%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82%E2%80%A6+%D0%B8+%D1%8F+%D0%BD%D0%B5+%D0%B7%D0%BD%D0%B0%D1%8E+%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83+%28%E3%83%BB_%E3%83%BB%3B%29;Plus+Ultra%21+%D0%95%D1%89%D1%91+%D0%BE%D0%B4%D0%B8%D0%BD+%D0%BA%D0%BE%D0%BC%D0%BC%D0%B8%D1%82%21;%D0%9E%D1%88%D0%B8%D0%B1%D0%BA%D0%B0+404%3A+%D1%81%D0%BE%D0%BD+%D0%BD%D0%B5+%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD+%28%EF%BC%8D_%EF%BC%8D%29+zzZ" alt="Печатающийся текст с приветствием"/>
+    <img src="https://readme-typing-svg.demolab.com?font=Pangolin&weight=400&size=22&duration=3000&pause=1000&color=111111&center=true&vCenter=true&width=720&height=46&lines=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%EF%BC%81+%D0%AF+wobuzhidao+%28%3D%5E%EF%BD%A5%CF%89%EF%BD%A5%5E%3D%29;%D0%9F%D0%B8%D1%88%D1%83+%D0%BA%D0%BE%D0%B4+%D0%BF%D0%BE%D0%B4+%D0%B0%D0%BD%D0%B8%D0%BC%D0%B5-%D0%BE%D0%BF%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%D0%B8+%E2%99%AA;%D0%9A%D0%B0%D0%B6%D0%B4%D1%8B%D0%B9+%D0%B1%D0%B0%D0%B3+%E2%80%94+%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F+%D0%B0%D1%80%D0%BA%D0%B0+%D1%81%D1%8E%D0%B6%D0%B5%D1%82%D0%B0;%D0%9C%D0%BE%D0%B9+%D0%BA%D0%BE%D0%B4+%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82%E2%80%A6+%D0%B8+%D1%8F+%D0%BD%D0%B5+%D0%B7%D0%BD%D0%B0%D1%8E+%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83+%28%E3%83%BB_%E3%83%BB%3B%29;Plus+Ultra%21+%D0%95%D1%89%D1%91+%D0%BE%D0%B4%D0%B8%D0%BD+%D0%BA%D0%BE%D0%BC%D0%BC%D0%B8%D1%82%21;%D0%9E%D1%88%D0%B8%D0%B1%D0%BA%D0%B0+404%3A+%D1%81%D0%BE%D0%BD+%D0%BD%D0%B5+%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD+%28%EF%BC%8D_%EF%BC%8D%29+zzZ" alt="Печатающийся текст с приветствием"/>
   </a>
 </p>
+<!-- TYPING:END -->
 
+<!-- BADGES:START -->
 <p align="center">
-  <a href="https://github.com/wobuzhidaoq?tab=followers"><img src="https://img.shields.io/github/followers/wobuzhidaoq?label=%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B8&style=for-the-badge&logo=github&logoColor=white&color=ffd1e6&labelColor=ff4f9a" alt="Подписчики"/></a>
-  <img src="https://img.shields.io/badge/%D0%A3%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C%20%D1%81%D0%B8%D0%BB%D1%8B-%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B5%209000%21-ffe08a?style=for-the-badge&labelColor=5bb8f5" alt="Уровень силы: больше 9000!"/>
-  <img src="https://img.shields.io/badge/%D0%90%D0%BD%D0%B8%D0%BC%D0%B5--%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81-%D1%81%D0%BC%D0%BE%D1%82%D1%80%D1%8E%20%D0%B5%D1%89%D1%91%20%D0%BE%D0%B4%D0%BD%D1%83%20%D1%81%D0%B5%D1%80%D0%B8%D1%8E-dcccff?style=for-the-badge&labelColor=6cc070&logo=crunchyroll&logoColor=white" alt="Аниме-статус: смотрю ещё одну серию"/>
-  <!-- ✏️ Сюда можно добавить свои соцсети, например:
-  <a href="https://t.me/ТВОЙ_НИК"><img src="https://img.shields.io/badge/Telegram-5bb8f5?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/></a>
-  <a href="https://discord.com/users/ТВОЙ_ID"><img src="https://img.shields.io/badge/Discord-b18cff?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"/></a>
-  -->
+  <a href="https://github.com/wobuzhidaoq?tab=followers"><img src="https://img.shields.io/github/followers/wobuzhidaoq?label=%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%B8&style=for-the-badge&logo=github&logoColor=white&color=ffffff&labelColor=111111" alt="Подписчики"/></a>
+  <img src="https://img.shields.io/badge/%D0%A3%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C%20%D1%81%D0%B8%D0%BB%D1%8B-%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B5%209000%21-ffffff?style=for-the-badge&labelColor=111111" alt="Уровень силы"/>
+  <img src="https://img.shields.io/badge/%D0%90%D0%BD%D0%B8%D0%BC%D0%B5--%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81-%D1%81%D0%BC%D0%BE%D1%82%D1%80%D1%8E%20%D0%B5%D1%89%D1%91%20%D0%BE%D0%B4%D0%BD%D1%83%20%D1%81%D0%B5%D1%80%D0%B8%D1%8E-ffffff?style=for-the-badge&labelColor=111111&logo=crunchyroll&logoColor=white" alt="Аниме-статус"/>
 </p>
+<!-- BADGES:END -->
 
 <p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
 
@@ -50,31 +50,45 @@
 
 <h2 align="center">⚔️ Арсенал · 技術スタック</h2>
 
-<!-- ✏️ Поменяй список иконок под себя: https://github.com/tandpfun/skill-icons#icons-list -->
+<!-- Список навыков — в config/profile.json → skills (названия как на https://skillicons.dev) -->
+<!-- SKILLS:START -->
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=python,js,ts,html,css,react,nodejs,git,github,vscode,linux,docker&perline=12&theme=light" alt="Технологии"/>
+  <img src="https://img.shields.io/badge/Python-111111?style=for-the-badge&labelColor=111111&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/JavaScript-111111?style=for-the-badge&labelColor=111111&logo=javascript&logoColor=white" alt="JavaScript"/>
+  <img src="https://img.shields.io/badge/TypeScript-111111?style=for-the-badge&labelColor=111111&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/HTML-111111?style=for-the-badge&labelColor=111111&logo=html5&logoColor=white" alt="HTML"/>
+  <img src="https://img.shields.io/badge/CSS-111111?style=for-the-badge&labelColor=111111&logo=css&logoColor=white" alt="CSS"/>
+  <img src="https://img.shields.io/badge/React-111111?style=for-the-badge&labelColor=111111&logo=react&logoColor=white" alt="React"/>
+  <img src="https://img.shields.io/badge/Node.js-111111?style=for-the-badge&labelColor=111111&logo=nodedotjs&logoColor=white" alt="Node.js"/>
+  <img src="https://img.shields.io/badge/Git-111111?style=for-the-badge&labelColor=111111&logo=git&logoColor=white" alt="Git"/>
+  <img src="https://img.shields.io/badge/GitHub-111111?style=for-the-badge&labelColor=111111&logo=github&logoColor=white" alt="GitHub"/>
+  <img src="https://img.shields.io/badge/VS%20Code-111111?style=for-the-badge&labelColor=111111" alt="VS Code"/>
+  <img src="https://img.shields.io/badge/Linux-111111?style=for-the-badge&labelColor=111111&logo=linux&logoColor=white" alt="Linux"/>
+  <img src="https://img.shields.io/badge/Docker-111111?style=for-the-badge&labelColor=111111&logo=docker&logoColor=white" alt="Docker"/>
 </p>
+<!-- SKILLS:END -->
 
 <p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
 
 <h2 align="center">📊 Статистика · 統計</h2>
 
+<!-- STATS:START -->
 <p align="center">
   <img src="./assets/generated/stats.svg" height="180" alt="Статистика GitHub"/>
-  <img src="./assets/generated/top-langs.svg" height="180" alt="Самые используемые языки"/>
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=wobuzhidaoq&locale=ru&border=FFC6DE&border_radius=16&background=30,FFF7FB,E6F5FF&stroke=FFB3D1&ring=FF4F9A&fire=FF8FC7&currStreakNum=4A2040&sideNums=4A2040&currStreakLabel=FF4F9A&sideLabels=2A86CF&dates=8E5A7C" alt="Серия дней с коммитами"/>
+  <img src="https://streak-stats.demolab.com?user=wobuzhidaoq&locale=ru&border=111111&border_radius=2&background=FFFFFF&stroke=111111&ring=111111&fire=111111&currStreakNum=111111&sideNums=111111&currStreakLabel=111111&sideLabels=444444&dates=777777" alt="Серия дней с коммитами"/>
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=wobuzhidaoq&bg_color=fff7fb&color=4a2040&title_color=ff4f9a&line=ff4f9a&point=5bb8f5&area=true&area_color=ffb3d1&border_color=ffc6de&radius=16&custom_title=%D0%A1%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%C2%B7%20%E6%B4%BB%E5%8B%95" width="100%" alt="График активности"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=wobuzhidaoq&bg_color=ffffff&color=111111&title_color=111111&line=111111&point=111111&area=true&area_color=bdbdbd&border_color=111111&radius=2&custom_title=%D0%A1%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0+%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8+%C2%B7+%E6%B4%BB%E5%8B%95" width="100%" alt="График активности"/>
 </p>
 
 <p align="center">
-  <img src="./assets/generated/3d-sakura.svg" width="100%" alt="3D-календарь вкладов в цветах сакуры"/>
+  <img src="./assets/generated/3d-sakura.svg" width="100%" alt="3D-календарь вкладов"/>
 </p>
+<!-- STATS:END -->
 
 <p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
 
@@ -98,11 +112,14 @@
 
 <p align="center"><img src="./assets/generated/divider.svg" width="100%" alt=""/></p>
 
+<!-- VIEWS:START -->
 <p align="center">
-  <img src="https://count.getloli.com/@wobuzhidaoq?name=wobuzhidaoq&theme=moebooru&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto" alt="Счётчик просмотров профиля"/>
+  <img src="https://count.getloli.com/@wobuzhidaoq?name=wobuzhidaoq&theme=sketch-1&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto" alt="Счётчик просмотров профиля"/>
   <br/>
   <sub>☝️ столько путников уже заглянуло в профиль</sub>
+  <br/><sub>🎨 Котик «え?» — Reboot_kitten (小红书)</sub>
 </p>
+<!-- VIEWS:END -->
 
 <p align="center">
   <img src="./assets/generated/footer.svg" width="100%" alt="またね～ До встречи!"/>

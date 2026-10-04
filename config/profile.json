@@ -1,11 +1,22 @@
 {
   "github_username": "wobuzhidaoq",
 
+  "style": "manga",
+
   "header": {
     "greeting": "こんにちは、旅人さん！",
     "title": "wobuzhidao",
     "subtitle": "разработчик · охотник за багами"
   },
+
+  "typing_lines": [
+    "こんにちは！ Я wobuzhidao (=^･ω･^=)",
+    "Пишу код под аниме-опенинги ♪",
+    "Каждый баг — новая арка сюжета",
+    "Мой код работает… и я не знаю почему (・_・;)",
+    "Plus Ultra! Ещё один коммит!",
+    "Ошибка 404: сон не найден (－_－) zzZ"
+  ],
 
   "status_window": {
     "race": "Человек (наверное)",
@@ -18,6 +29,25 @@
       "Плед уюта"
     ]
   },
+
+  "skills": ["python", "js", "ts", "html", "css", "react", "nodejs", "git", "github", "vscode", "linux", "docker"],
+
+  "socials": [
+    {"name": "Telegram", "url": "", "logo": "telegram"},
+    {"name": "Discord", "url": "", "logo": "discord"}
+  ],
+
+  "images": {
+    "header_left": "assets/images/manga-glasses.jpg",
+    "header_right": "assets/images/manga-doodle.jpg",
+    "status": "assets/images/manga-cat.jpg",
+    "quote": "assets/images/manga-peek.jpg",
+    "footer": "assets/images/manga-smile.jpg"
+  },
+
+  "credits": [
+    "Котик «え?» — Reboot_kitten (小红书)"
+  ],
 
   "exclude_languages": [],
 
